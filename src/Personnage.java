@@ -1,43 +1,41 @@
 public class Personnage {
-    // je déclare ma classe personnage
-    String name;
+    String nom;
     String type;
     int vie;
     int force;
     String offensif;
     String defensif;
 
-// j'initialise les propriétés de mon Personnage
-
     public Personnage() {
-        this.name = "Carole";
+        this.nom = "Carole";
         this.vie = 10;
         this.force = 10;
         this.offensif = "tomate";
         this.defensif = "bambou";
     }
 
-    public Personnage(String namePerso) {
-        this.name = namePerso;
+    public Personnage(String nomPerso) {
+        this.nom = nomPerso;
         this.vie = 5;
         this.force = 5;
         this.offensif = "crouton";
         this.defensif = "brioche";
     }
 
-    public Personnage(String namePerso, String type) {
-        this.name = namePerso;
+/*    public Personnage(String nomPerso, String type) {
+        this.nom = nomPerso;
 
         // condition
-
-        if (type("guerrier")) {
+        if (type(equalsIgnoreCase("guerrier"));
+        {
             this.vie = 10;
             this.force = 10;
             this.offensif = "épée";
             this.defensif = "bouclier";
         }
 
-        if (type("magicien")){
+        if (type(equalsIgnoreCase("magicien"));
+        {
             this.vie = 6;
             this.force = 15;
             this.offensif = "sort";
@@ -46,10 +44,17 @@ public class Personnage {
         }
     }
 
-    public static void main(String[] args) {
-        Personnage Massimo = new Personnage("Carole", "guerrier");
-        System.out.println(Massimo.name);
-
+ */
+    @Override
+    public String toString() {
+        return "Personnage{" +
+                "nom='" + nom + '\'' +
+                ", vie=" + vie +
+                ", force=" + force +
+                ", offensif='" + offensif + '\'' +
+                ", defensif='" + defensif + '\'' +
+                '}';
     }
 }
+
 
