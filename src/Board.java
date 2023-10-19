@@ -1,7 +1,7 @@
-public class PlateGame {
+public class Board {
     private int positionPlayer;
 
-    public PlateGame() {
+    public Board() {
         this.positionPlayer = 0; // Case de départ
     }
 

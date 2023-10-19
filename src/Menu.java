@@ -1,11 +1,16 @@
 import java.util.Scanner;
 
 public class Menu {
-    //    Scanner classe qu'on initalise
+    //    Scanner grande classe qu'on initialise avec la var scanner
     private final Scanner scanner;
 
     public Menu(Scanner scanner) {
         this.scanner = scanner;
+    }
+
+
+    public static void showMenu() {
+        System.out.println("-------- BIENVENUE DANS DONJONS & DRAGONS --------");
     }
 
     // Méthode chooseHere qui permet d'instancier le Hero ici
@@ -17,9 +22,9 @@ public class Menu {
         // Tant que isReady est faux
         while (!isReady) {
             //Instancier un nouveau scanner qui récupère le input/l'entrée
-            Scanner scanner = new Scanner(System.in);
+//            Scanner scanner = new Scanner(System.in);
             // Affiche-moi ---->
-            System.out.println("Veuillez choisir votre personnage (Guerrier / Magicien) ou Echap pour quitter le jeu : ");
+            System.out.println("Veuillez choisir votre personnage :\n Guerrier ? Magicien ? ou Echap pour quitter le jeu (un peu de nerfs quand même) : ");
             String playerChoice = scanner.nextLine().toUpperCase();
             switch (playerChoice) {
                 // dans le cas où l'utilisateur choisit le Guerrier
@@ -52,8 +57,7 @@ public class Menu {
         return null;
     }
 
-
-
+// méthode createHero
 
 
 //
