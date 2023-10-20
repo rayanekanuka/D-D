@@ -1,4 +1,5 @@
 public class Hero {
+
     private String type;
     private String name;
     private int life;
@@ -7,7 +8,8 @@ public class Hero {
     private String defensive;
 
     public Hero() {
-        this.name = "Carole";
+        this.type = "";
+        this.name = "Massimo";
         this.life = 10;
         this.strength = 10;
         this.offensive = "tomate";
@@ -24,9 +26,10 @@ public class Hero {
 
       public Hero(String name, String type) {
             this.name = name;
+            this.type = type;
 
             // condition
-            if (type.equalsIgnoreCase("Warrior"))
+            if (type.equalsIgnoreCase("Guerrier"))
             {
                 this.life = 10;
                 this.strength = 10;
@@ -34,7 +37,7 @@ public class Hero {
                 this.defensive = "bouclier";
             }
 
-            if (type.equalsIgnoreCase("Magician"))
+            if (type.equalsIgnoreCase("Magicien"))
             {
                 this.life = 6;
                 this.strength = 15;
@@ -53,4 +56,57 @@ public class Hero {
                 + " | Et avec : " + this.defensive + " en équipement défensif"
                 + " ]";
     }
+
+    // GETTER & SETTER //
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public String getOffensive() {
+        return offensive;
+    }
+
+    public void setOffensive(String offensive) {
+        this.offensive = offensive;
+    }
+
+    public String getDefensive() {
+        return defensive;
+    }
+
+    public void setDefensive(String defensive) {
+        this.defensive = defensive;
+    }
+
+
+
+
 }

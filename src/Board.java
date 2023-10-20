@@ -1,7 +1,9 @@
 public class Board {
+
     private int positionPlayer;
 
     public Board() {
+
         this.positionPlayer = 0; // Case de départ
     }
 
@@ -19,12 +21,15 @@ public class Board {
             int surplus = positionPlayer - 64;
             positionPlayer = 64 - surplus;
         }
-
-        // Maintenant les conditions?
-        // Ou plutôt dans game?
+        System.out.println("ici voyez vos dés : ");
     }
 
     public int getPositionPlayer() {
+
         return positionPlayer;
     }
+    public void setPositionPlayer(int positionPlayer) {
+        this.positionPlayer = positionPlayer;
+    }
 }
+
