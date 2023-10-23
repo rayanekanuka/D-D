@@ -1,4 +1,4 @@
-// Classe équipement offensif d'un personnage
+// Classe équipement defensif d'un personnage
 class EquipementDefensif {
     private String name;
 

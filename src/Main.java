@@ -4,6 +4,5 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Menu start = new Menu(scanner);
         start.chooseHero();
-
     }
 }
