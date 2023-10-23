@@ -29,9 +29,11 @@ public class Menu {
         // Tant que isReady est faux
         while (!isReady) {
             // Affiche-moi ---->
-            System.out.println("Bienvenue dans le célèbre jeu Donjons & Dragons :) \n ");
-            System.out.println("Que souhaitez-vous faire ?\n Choisir un personnage : Guerrier ou Magicien ?\n ");
-            System.out.println("CREER votre personnage ? \n JOUER ? \n ou Echap pour quitter le jeu :");
+            System.out.println("Bienvenue :) Que souhaitez-vous faire ?");
+            System.out.println("* GUERRIER ou MAGICIEN ? Faites votre choix");
+            System.out.println("* CREER votre propre personnage ? ");
+            System.out.println("* JOUER ?");
+            System.out.println("* ECHAP pour quitter le jeu");
             String playerChoice = scanner.nextLine().toUpperCase();
 
             switch (playerChoice) {

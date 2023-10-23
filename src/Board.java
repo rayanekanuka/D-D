@@ -20,7 +20,7 @@ public class Board {
         while (positionPlayer < boardSize) {
             int dice; // Random dé
             dice = (int) (Math.random() * 6) + 1;
-            System.out.println("Wohoo ton dé n°" + dice);
+            System.out.println("Wohooo ton jet de dé : " + dice);
             System.out.println("Vous êtes maintenant sur la case " + positionPlayer);
 
 
