@@ -187,6 +187,4 @@ public abstract class Hero {
     public void setMaxStrength(int maxStrength) {
         this.maxStrength = maxStrength;
     }
-
-
 }
