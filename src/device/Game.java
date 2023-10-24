@@ -1,5 +1,5 @@
 //public class Game {
-//    public void newGame(Board plate, Hero myHero) {
+//    public void newGame(Board plate, characters.Hero myHero) {
 //        System.out.println("Let's Start !");
 //        boolean GameOver = false;
 //

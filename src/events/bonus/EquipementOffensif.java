@@ -1,3 +1,5 @@
+package events.bonus;
+
 // Classe équipement défensif d'un personnage
 public class EquipementOffensif {
     private String name;

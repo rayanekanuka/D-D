@@ -1,3 +1,5 @@
+package device;
+
 import java.util.Scanner;
 
 public class Board {
@@ -11,7 +13,8 @@ public class Board {
     }
 
     public void gameStart() {
-        System.out.println("Bienvenue dans cette nouvelle partie ! Vous commencez à la case n°1");
+        System.out.println("Bienvenue dans cette nouvelle partie ! Vous commencez à la case n°0");
+        throwDice();
     }
 
     // Méthode pour lancer le dé et faire avancer le joueur
@@ -20,8 +23,8 @@ public class Board {
         while (positionPlayer < boardSize) {
             int dice; // Random dé
             dice = (int) (Math.random() * 6) + 1;
-            System.out.println("Wohooo ton jet de dé : " + dice);
-            System.out.println("Vous êtes maintenant sur la case " + positionPlayer);
+            System.out.println("Wohooo ton jet de dés : " + dice );
+            System.out.println("Vous êtes maintenant sur la case " + positionPlayer + "/64");
 
 
             // Avance le joueur sur le plateau =>
@@ -43,6 +46,7 @@ public class Board {
 
         // Demande au joueur s'il veut recommencer ou quitter
         System.out.println("Voulez-vous recommencer une partie ? (Oui/Non)");
+        setPositionPlayer(0);
         String choix = pscanner.next();
         if (choix.equalsIgnoreCase("Oui")) {
             gameStart(); // Recommencer une partie

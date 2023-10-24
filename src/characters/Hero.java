@@ -1,3 +1,5 @@
+package characters;
+
 public class Hero {
 
     private String type;
@@ -105,8 +107,6 @@ public class Hero {
     public void setDefensive(String defensive) {
         this.defensive = defensive;
     }
-
-
 
 
 }
