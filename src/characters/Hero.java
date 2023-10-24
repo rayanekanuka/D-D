@@ -1,7 +1,6 @@
 package characters;
 
 public abstract class Hero {
-
     protected String type;
     protected String name;
     protected int hp;
@@ -109,12 +108,12 @@ public abstract class Hero {
         this.name = name;
     }
 
-    public int getLife() {
+    public int getHp() {
         return hp;
     }
 
-    public void setLife(int life) {
-        this.hp = life;
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     public int getStrength() {
@@ -123,6 +122,14 @@ public abstract class Hero {
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
     }
 
     public String getOffensive() {
@@ -139,6 +146,46 @@ public abstract class Hero {
 
     public void setDefensive(String defensive) {
         this.defensive = defensive;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public int getMinHP() {
+        return minHP;
+    }
+
+    public void setMinHP(int minHP) {
+        this.minHP = minHP;
+    }
+
+    public int getMaxHP() {
+        return maxHP;
+    }
+
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
+    }
+
+    public int getMinStrength() {
+        return minStrength;
+    }
+
+    public void setMinStrength(int minStrength) {
+        this.minStrength = minStrength;
+    }
+
+    public int getMaxStrength() {
+        return maxStrength;
+    }
+
+    public void setMaxStrength(int maxStrength) {
+        this.maxStrength = maxStrength;
     }
 
 
