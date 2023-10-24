@@ -1,59 +1,92 @@
 package characters;
 
-public class Hero {
+public abstract class Hero {
 
-    private String type;
-    private String name;
-    private int life;
-    private int strength;
-    private String offensive;
-    private String defensive;
+    protected String type;
+    protected String name;
+    protected int hp;
+    protected int strength;
+    protected int attack;
+    protected String offensive;
+    protected String defensive;
+    protected int position;
 
-    public Hero() {
-        this.type = "";
-        this.name = "Massimo";
-        this.life = 10;
-        this.strength = 10;
-        this.offensive = "tomate";
-        this.defensive = "bambou";
-    }
+    protected int minHP;
+    protected int maxHP;
+    protected int minStrength;
+    protected int maxStrength;
 
-    public Hero(String name) {
+    public Hero(String name, int hp, int strength, int attack, String type) {
         this.name = name;
-        this.life = 5;
-        this.strength = 5;
-        this.offensive = "crouton";
-        this.defensive = "brioche";
+        this.hp = hp;
+        this.strength = strength;
+        this.attack = attack;
+        this.type = type;
+        this.minHP = 5;
+        this.maxHP = 10;
+        this.minStrength = 5;
+        this.maxStrength = 10;
     }
 
-      public Hero(String name, String type) {
-            this.name = name;
-            this.type = type;
+    public Hero(String name, int hp, int strength, int attack, String type, int minHP, int maxHP, int minStrength, int maxStrength) {
+        this.name = name;
+        this.hp = hp;
+        this.strength = strength;
+        this.attack = attack;
+        this.type = type;
+        this.minHP = minHP;
+        this.maxHP = maxHP;
+        this.minStrength = minStrength;
+        this.maxStrength = maxStrength;
+    }
 
-            // condition
-            if (type.equalsIgnoreCase("Guerrier"))
-            {
-                this.life = 10;
-                this.strength = 10;
-                this.offensive = "épée";
-                this.defensive = "bouclier";
-            }
 
-            if (type.equalsIgnoreCase("Magicien"))
-            {
-                this.life = 6;
-                this.strength = 15;
-                this.offensive = "sort";
-                this.defensive = "philtre";
+//    public Hero() {
+//        this.type = "";
+//        this.name = "Massimo";
+//        this.hp = 10;
+//        this.strength = 10;
+//        this.offensive = "tomate";
+//        this.defensive = "bambou";
+//    }
+//
+//    public Hero(String name) {
+//        this.name = name;
+//        this.hp = 5;
+//        this.strength = 5;
+//        this.offensive = "crouton";
+//        this.defensive = "brioche";
+//    }
+//
+//      public Hero(String name, String type) {
+//            this.name = name;
+//            this.type = type;
+//
+//            // condition
+//            if (type.equalsIgnoreCase("Guerrier"))
+//            {
+//                this.hp = 10;
+//                this.strength = 10;
+//                this.offensive = "épée";
+//                this.defensive = "bouclier";
+//            }
+//
+//            if (type.equalsIgnoreCase("Magicien"))
+//            {
+//                this.hp = 6;
+//                this.strength = 15;
+//                this.offensive = "sort";
+//                this.defensive = "philtre";
+//
+//            }
+//        }
 
-            }
-        }
-
+   @Override
     public String toString() {
         return "[ Vous êtes un " + this.type
                 + ", et votre nom est : " + this.name
                 + " | Avec " + this.strength + " points de force"
-                + " | Avec : " + this.life + " points de vie"
+                + " | Avec : " + this.hp + " points de vie"
                 + " | Avec : " + this.offensive + " en équipement offensif"
                 + " | Et avec : " + this.defensive + " en équipement défensif"
                 + " ]";
@@ -77,11 +110,11 @@ public class Hero {
     }
 
     public int getLife() {
-        return life;
+        return hp;
     }
 
     public void setLife(int life) {
-        this.life = life;
+        this.hp = life;
     }
 
     public int getStrength() {

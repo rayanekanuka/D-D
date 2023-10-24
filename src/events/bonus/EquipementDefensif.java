@@ -1,7 +1,7 @@
 package events.bonus;
 
 // Classe équipement defensif d'un personnage
-class EquipementDefensif {
+public abstract class EquipementDefensif {
     private String name;
 
     // Constructeur pour créer un équipement offensif avec un nom

@@ -1,6 +1,8 @@
 package device;
 
 import characters.Hero;
+import characters.Magician;
+import characters.Warrior;
 
 import java.util.Scanner;
 
@@ -57,7 +59,7 @@ public class Menu {
                     System.out.println("Veuillez choisir le nom de votre Héros : ");
                     String playerName = scanner.nextLine().toUpperCase();
                     System.out.println("Vous avez choisi le " + playerChoice + ", préparez-vous à la bagarre !");
-                    hero1 = new Hero(playerName, playerChoice);
+                    hero1 = new Warrior(playerName);
                     // isReady devient vrai ce qui permet de sortir de la boucle while
                     isReady = false;
                     System.out.println(hero1);
@@ -67,7 +69,7 @@ public class Menu {
                     System.out.println("Veuillez choisir le nom de votre Héros : ");
                     String playerName = scanner.nextLine().toUpperCase();
                     System.out.println("Vous avez choisi le " + playerChoice + ", préparez-vous à la bagarre !");
-                    hero2 = new Hero(playerName, playerChoice);
+                    hero2 = new Magician(playerName);
                     // isReady devient vrai ce qui permet de sortir de la boucle while
                     isReady = false;
                     System.out.println(hero2);
