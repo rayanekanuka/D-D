@@ -1,8 +1,8 @@
-package events.bonus;
+package characters;
 
 import device.Case;
 
-// Classe équipement défensif d'un personnage
+// Classe équipement offensif d'un personnage
 public abstract class EquipementOffensif implements Case {
     private String name;
     public EquipementOffensif(String name) {

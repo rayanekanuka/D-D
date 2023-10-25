@@ -1,7 +1,6 @@
 package events.bonus.spells;
 
-import characters.Hero;
-import events.bonus.EquipementOffensif;
+import characters.EquipementOffensif;
 
 /**
  * Représente un équipement offensif de type "Sort", pour les Magiciens.

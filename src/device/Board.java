@@ -1,19 +1,19 @@
 package device;
 
 import characters.Hero;
-import characters.PersonnageHorsPlateauException;
 import events.bonus.potions.MaxPotion;
 import events.bonus.potions.NormalPotion;
 import events.bonus.spells.FireBall;
 import events.bonus.spells.Flash;
 import events.bonus.weapons.Hammer;
 import events.bonus.weapons.Sword;
-import events.ennemies.Dragon;
-import events.ennemies.Gobelin;
-import events.ennemies.Sorcerer;
+import events.enemies.Dragon;
+import events.enemies.Gobelin;
+import events.enemies.Sorcerer;
 
 import java.util.ArrayList;
 
+// Ici nous avons notre Plateau de jeu avec ses cases instanciées dans une ArrayList
 public class Board implements Case {
     public ArrayList<Case> getBoard() {
         return board;
@@ -46,7 +46,6 @@ public class Board implements Case {
             }
         }
     }
-
 
 
     @Override

@@ -1,4 +1,4 @@
-package events.bonus;
+package characters;
 
 import device.Case;
 

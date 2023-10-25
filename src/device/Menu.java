@@ -37,7 +37,7 @@ public class Menu {
             Hero hero1;
             Hero hero2;
             // Affiche-moi ---->
-            System.out.println("Bienvenue :) Que souhaitez-vous faire ?");
+            System.out.println("Que souhaitez-vous faire ?");
             System.out.println("* GUERRIER ou MAGICIEN ? Faites votre choix");
             System.out.println("* CREER votre propre personnage ? ");
             System.out.println("* JOUER !");

@@ -3,11 +3,10 @@ package characters;
 import events.bonus.weapons.Weapon;
 
 /**
- * Classe abstraite de Hero
+ * Classe parent de Warrior et Magician, le Hero constructeur et les méthodes sont utilisées par les enfants
  */
 
 public abstract class Hero {
-
 
     protected String type;
     protected String name;

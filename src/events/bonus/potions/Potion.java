@@ -1,6 +1,6 @@
 package events.bonus.potions;
 
-import events.bonus.EquipementDefensif;
+import characters.EquipementDefensif;
 
 public abstract class Potion extends EquipementDefensif {
     public Potion(String name) {
