@@ -1,14 +1,17 @@
 package characters;
 
+import events.bonus.weapons.Weapon;
+
 public abstract class Hero {
     protected String type;
     protected String name;
     protected int hp;
     protected int strength;
     protected int attack;
+    protected Weapon weapon;
+    protected int position;
     protected String offensive;
     protected String defensive;
-    protected int position;
 
     protected int minHP;
     protected int maxHP;
@@ -39,65 +42,9 @@ public abstract class Hero {
         this.maxStrength = maxStrength;
     }
 
-
-//    public Hero() {
-//        this.type = "";
-//        this.name = "Massimo";
-//        this.hp = 10;
-//        this.strength = 10;
-//        this.offensive = "tomate";
-//        this.defensive = "bambou";
-//    }
-//
-//    public Hero(String name) {
-//        this.name = name;
-//        this.hp = 5;
-//        this.strength = 5;
-//        this.offensive = "crouton";
-//        this.defensive = "brioche";
-//    }
-//
-//      public Hero(String name, String type) {
-//            this.name = name;
-//            this.type = type;
-//
-//            // condition
-//            if (type.equalsIgnoreCase("Guerrier"))
-//            {
-//                this.hp = 10;
-//                this.strength = 10;
-//                this.offensive = "épée";
-//                this.defensive = "bouclier";
-//            }
-//
-//            if (type.equalsIgnoreCase("Magicien"))
-//            {
-//                this.hp = 6;
-//                this.strength = 15;
-//                this.offensive = "sort";
-//                this.defensive = "philtre";
-//
-//            }
-//        }
-
-   @Override
-    public String toString() {
-        return "[ Vous êtes un " + this.type
-                + ", et votre nom est : " + this.name
-                + " | Avec " + this.strength + " points de force"
-                + " | Avec : " + this.hp + " points de vie"
-                + " | Avec : " + this.offensive + " en équipement offensif"
-                + " | Et avec : " + this.defensive + " en équipement défensif"
-                + " ]";
-    }
-
     // GETTER & SETTER //
     public String getType() {
         return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getName() {
@@ -105,15 +52,18 @@ public abstract class Hero {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
-    public int getHp() {
-        return hp;
-    }
-
     public void setHp(int hp) {
-        this.hp = hp;
+        if (hp > this.maxHP) {
+            this.hp = this.maxHP;
+        } else if (hp < this.minHP) {
+            this.hp = this.minHP;
+        } else {
+            this.hp = hp;
+        }
     }
 
     public int getStrength() {
@@ -124,28 +74,20 @@ public abstract class Hero {
         this.strength = strength;
     }
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
     public int getAttack() {
         return attack;
     }
 
     public void setAttack(int attack) {
         this.attack = attack;
-    }
-
-    public String getOffensive() {
-        return offensive;
-    }
-
-    public void setOffensive(String offensive) {
-        this.offensive = offensive;
-    }
-
-    public String getDefensive() {
-        return defensive;
-    }
-
-    public void setDefensive(String defensive) {
-        this.defensive = defensive;
     }
 
     public int getPosition() {
@@ -156,35 +98,15 @@ public abstract class Hero {
         this.position = position;
     }
 
-    public int getMinHP() {
-        return minHP;
+    @Override
+    public String toString() {
+        return "[ Vous êtes un " + this.type
+                + ", et votre nom est : " + this.name
+                + " | Avec " + this.strength + " points de force"
+                + " | Avec : " + this.hp + " points de vie"
+                + " | Avec : " + this.offensive + " en équipement offensif"
+                + " | Et avec : " + this.defensive + " en équipement défensif"
+                + " ]";
     }
 
-    public void setMinHP(int minHP) {
-        this.minHP = minHP;
-    }
-
-    public int getMaxHP() {
-        return maxHP;
-    }
-
-    public void setMaxHP(int maxHP) {
-        this.maxHP = maxHP;
-    }
-
-    public int getMinStrength() {
-        return minStrength;
-    }
-
-    public void setMinStrength(int minStrength) {
-        this.minStrength = minStrength;
-    }
-
-    public int getMaxStrength() {
-        return maxStrength;
-    }
-
-    public void setMaxStrength(int maxStrength) {
-        this.maxStrength = maxStrength;
-    }
 }

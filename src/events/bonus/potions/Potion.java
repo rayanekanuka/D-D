@@ -1,4 +1,9 @@
 package events.bonus.potions;
 
-public class Potion {
+import events.bonus.EquipementDefensif;
+
+public class Potion extends EquipementDefensif {
+    public Potion(String name) {
+        super(name);
+    }
 }

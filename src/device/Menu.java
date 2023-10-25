@@ -7,10 +7,10 @@ import characters.Warrior;
 import java.util.Scanner;
 
 public class Menu {
-    //    Scanner grande classe qu'on initialise avec la var scanner
+    //    Scanner grande classe qu'on initialise avec la méthode scanner
     private final Scanner scanner;
 
-    // Constructeur de la classe device.Menu;
+    // Constructeur de la classe Menu;
     // Le scanner est utilisé pour obtenir les entrées de l'utilisateur
 
     public Menu(Scanner scanner) {
@@ -18,7 +18,7 @@ public class Menu {
         this.scanner = scanner;
     }
 
-    // Méthode chooseHero qui permet d'afficher le device.Menu et d'instancier le characters.Hero ici
+    // Méthode chooseHero qui permet d'afficher le Menu et d'instancier le Hero ici
     // Si je veux l'utiliser ailleurs penser à la retourner (mot clé return)
     public Hero chooseHero() {
         System.out.println("\n" +
@@ -40,7 +40,7 @@ public class Menu {
             System.out.println("Bienvenue :) Que souhaitez-vous faire ?");
             System.out.println("* GUERRIER ou MAGICIEN ? Faites votre choix");
             System.out.println("* CREER votre propre personnage ? ");
-            System.out.println("* JOUER ?");
+            System.out.println("* JOUER !");
             System.out.println("* ECHAP pour quitter le jeu");
             String playerChoice = scanner.nextLine().toUpperCase();
 
@@ -50,8 +50,8 @@ public class Menu {
                 }
                 case "JOUER" -> {
                     System.out.println("Aller commençons ! Faites-nous rêver :) ");
-                    Board newBoard = new Board();
-                    newBoard.throwDice();
+                    Game newGame = new Game();
+                    newGame.throwDice();
                     isReady = true;
                 }
                 // dans le cas où l'utilisateur choisit le Guerrier
