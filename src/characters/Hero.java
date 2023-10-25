@@ -2,7 +2,13 @@ package characters;
 
 import events.bonus.weapons.Weapon;
 
+/**
+ * Classe abstraite de Hero
+ */
+
 public abstract class Hero {
+
+
     protected String type;
     protected String name;
     protected int hp;
@@ -30,6 +36,18 @@ public abstract class Hero {
         this.maxStrength = 10;
     }
 
+    /**
+     * Fonction principale de Hero,
+     * @param name Nom du perso
+     * @param hp Health Points
+     * @param strength Force du perso
+     * @param attack Attaque
+     * @param type Type de perso
+     * @param minHP min Health Points
+     * @param maxHP max Health Points
+     * @param minStrength min Force
+     * @param maxStrength max Force
+     */
     public Hero(String name, int hp, int strength, int attack, String type, int minHP, int maxHP, int minStrength, int maxStrength) {
         this.name = name;
         this.hp = hp;
@@ -47,6 +65,10 @@ public abstract class Hero {
         return type;
     }
 
+    /**
+     *
+     * @return le nom de mon Héros
+     */
     public String getName() {
         return name;
     }
@@ -100,9 +122,9 @@ public abstract class Hero {
 
     @Override
     public String toString() {
-        return "[ Vous êtes un " + this.type
-                + ", et votre nom est : " + this.name
-                + " | Avec " + this.strength + " points de force"
+        return "[ --------- Vous êtes un " + this.type + " --------- ]\n"
+                + " --- Votre nom est : " + this.name + " --- \n"
+                + " [ Avec : " + this.strength + " points de force"
                 + " | Avec : " + this.hp + " points de vie"
                 + " | Avec : " + this.offensive + " en équipement offensif"
                 + " | Et avec : " + this.defensive + " en équipement défensif"

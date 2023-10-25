@@ -1,4 +1,9 @@
 package events.bonus.weapons;
 
-public class Weapon {
+import events.bonus.EquipementOffensif;
+
+public abstract class Weapon extends EquipementOffensif {
+    public Weapon(String name) {
+        super(name);
+    }
 }

@@ -1,4 +1,14 @@
 package events.bonus.weapons;
 
-public class Hammer {
+import characters.Hero;
+
+public class Hammer extends Weapon{
+    public Hammer(String name) {
+        super(name);
+    }
+
+    @Override
+    public void interaction(Hero hero) {
+
+    }
 }

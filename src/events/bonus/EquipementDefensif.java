@@ -1,7 +1,9 @@
 package events.bonus;
 
+import device.Case;
+
 // Classe équipement defensif d'un personnage
-public abstract class EquipementDefensif {
+public abstract class EquipementDefensif implements Case {
     private String name;
 
     // Constructeur pour créer un équipement offensif avec un nom

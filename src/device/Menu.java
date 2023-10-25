@@ -51,6 +51,7 @@ public class Menu {
                 case "JOUER" -> {
                     System.out.println("Aller commençons ! Faites-nous rêver :) ");
                     Game newGame = new Game();
+                    newGame.gameStart();
                     newGame.throwDice();
                     isReady = true;
                 }

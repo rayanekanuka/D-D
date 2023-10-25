@@ -1,4 +1,6 @@
 package events.ennemies;
 
-public abstract class Villain {
+import device.Case;
+
+public abstract class Villain implements Case {
 }

@@ -1,7 +1,9 @@
 package events.bonus;
 
+import device.Case;
+
 // Classe équipement défensif d'un personnage
-public abstract class EquipementOffensif {
+public abstract class EquipementOffensif implements Case {
     private String name;
     public EquipementOffensif(String name) {
         this.name = name;
