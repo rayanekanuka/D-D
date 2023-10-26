@@ -6,17 +6,12 @@ import characters.PersonnageHorsPlateauException;
 import java.util.Scanner;
 
 public class Game {
-
-    private int positionPlayer;
     private int boardSize;
     private int round;
-    private Hero hero;
 
     public Game() {
-        this.positionPlayer = 1; // Case de départ
         this.boardSize = 64; // plateau
         this.round = 0; // tour de jeu
-        this.hero = hero;
     }
 
     public int throwDice() {
@@ -26,6 +21,8 @@ public class Game {
     }
 
     public void move(Hero hero) throws PersonnageHorsPlateauException {
+
+        hero.setPosition(1); // Case de depart
         Board newBoard = new Board();
         boolean game = false;
 
@@ -35,21 +32,18 @@ public class Game {
             System.out.println("LANCER vos dès : press D");
             String entry = scan.nextLine().toUpperCase();
 
-            if (entry.equals("D")) {
+            if (entry.equalsIgnoreCase("D")) {
                 System.out.println("Wohooo ton dé : " + dice);
-                positionPlayer = getPositionPlayer() + dice;
-                hero.setPosition(positionPlayer);
+                hero.setPosition(hero.getPosition() +dice);
+                System.out.println("Vous êtes sur la case " + hero.getPosition() + "/64");
 
-                positionPlayer += dice;
-                System.out.println("Vous êtes sur la case " + positionPlayer + "/64");
-
-                newBoard.getCase.interaction(hero);
+                newBoard.getCase(hero.getPosition()).interaction(hero);
                 System.out.println("POSITION de votre héros : " + hero.getPosition());
 
                 round++;
                 System.out.println("Au tour numéro : " + round);
 
-                if (positionPlayer > boardSize) {
+                if (hero.getPosition() > boardSize) {
                     throw new PersonnageHorsPlateauException();
                 }
             } else {
@@ -66,7 +60,7 @@ public class Game {
 
         // Demande au joueur s'il veut recommencer ou quitter
         System.out.println("Voulez-vous recommencer une partie ? (Oui/Non)");
-        setPositionPlayer(1);
+        hero.setPosition(1);
         String choix = scanner.next();
         if (choix.equalsIgnoreCase("Oui")) {
             move(hero); // Recommencer une partie
@@ -74,24 +68,5 @@ public class Game {
             System.out.println("Merci d'avoir joué. Au revoir !");
         }
     }
-
-    // GETTERS & SETTERS
-
-    public int getPositionPlayer() {
-        return positionPlayer;
-    }
-
-    public void setPositionPlayer(int positionPlayer) {
-        this.positionPlayer = positionPlayer;
-    }
-
-    public Hero getHero() {
-        return hero;
-    }
-
-    public void setHero(Hero hero) {
-        this.hero = hero;
-    }
-
 
 }

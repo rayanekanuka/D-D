@@ -8,7 +8,6 @@ public abstract class Enemy implements Case {
     protected int attack;
 
     public Enemy() {
-        System.out.println("not implemented");
     }
 
 

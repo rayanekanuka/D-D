@@ -22,6 +22,8 @@ public class Menu {
     // Méthode chooseHero qui permet d'afficher le Menu et d'instancier le Hero ici
     // Si je veux l'utiliser ailleurs penser à la retourner (mot clé return)
     public Hero chooseHero() {
+        Hero hero1 = new Magician("");
+
         System.out.println("\n" +
                 "██████╗  ██████╗ ███╗   ██╗     ██╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
                 "██╔══██╗██╔═══██╗████╗  ██║     ██║██╔═══██╗████╗  ██║██╔════╝       ██║       ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔═══██╗████╗  ██║██╔════╝\n" +
@@ -35,8 +37,8 @@ public class Menu {
 
         // Tant que isReady est faux
         while (!isReady) {
-            Hero hero1 = null;
-//            Hero hero2 = null;
+
+
             // Affiche-moi ---->
             System.out.println("Que souhaitez-vous faire ?");
             System.out.println("* GUERRIER ou MAGICIEN ? Faites votre choix");
@@ -47,16 +49,15 @@ public class Menu {
 
             switch (playerChoice) {
                 case "CREER" -> {
-                    newHero();
+                    hero1 = newHero();
                 }
                 case "JOUER" -> {
                     System.out.println("Aller commençons ! Faites-nous rêver :) ");
                     Game newGame = new Game();
-                    newGame.throwDice();
                     try {
                         newGame.move(hero1);
-                    } catch (PersonnageHorsPlateauException e) {
-                        throw new RuntimeException(e);
+                    } catch (Exception e) {
+                        System.out.println("Vous êtes allé trop loin ! C'EST PERDU ! (not implemented)");
                     }
                     isReady = true;
                 }
@@ -90,12 +91,14 @@ public class Menu {
                 // Si toutefois aucun de ces cas n'est choisi alors le "default" se lance
                 default -> System.out.println("Veuillez entrer un choix valide !");
             }
+
         }
         return null;
     }
 
 
-    public void newHero() {
+    public Hero newHero() {
+        Hero hero1 = null;
         Scanner newHero = new Scanner(System.in);
         System.out.print("Taper le nom : ");
         String nameHero = newHero.nextLine();
@@ -121,6 +124,11 @@ public class Menu {
                 System.out.print("Taper la nouvelle classe : ");
                 typeHero = newHero.nextLine();
             }
+        }
+        if (typeHero.equalsIgnoreCase("Guerrier")) {
+            return hero1 = new Warrior(nameHero);
+        } else {
+            return hero1 = new Magician(nameHero);
         }
     }
 }

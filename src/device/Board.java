@@ -24,7 +24,6 @@ public class Board implements Case {
 
     private final ArrayList<Case> board;
     private int positionPlayer; // position actuelle du joueur
-    public Board getCase;
 
 
     /**
@@ -49,10 +48,12 @@ public class Board implements Case {
                 case 28, 41 -> board.add(new MaxPotion(""));
                 default -> board.add(new EmptyCase());
             }
-            System.out.println("Vous êtes sur la case " + i + " = " + board.get(i));
         }
     }
 
+    public Case getCase(int positionPlayer) {
+        return board.get(positionPlayer);
+    }
 
     @Override
     public void interaction(Hero hero) {
