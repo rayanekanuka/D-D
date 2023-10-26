@@ -1,67 +1,75 @@
 package device;
 
 import characters.Hero;
-import characters.Warrior;
+import characters.PersonnageHorsPlateauException;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
 
     private int positionPlayer;
     private int boardSize;
+    private int round;
+    private Hero hero;
 
     public Game() {
         this.positionPlayer = 1; // Case de départ
-        this.boardSize = 64;
+        this.boardSize = 64; // plateau
+        this.round = 0; // tour de jeu
+        this.hero = hero;
     }
 
-    public void gameStart() {
-        System.out.println("Bienvenue dans cette nouvelle partie ! Vous commencez à la case n°0");
-        Board boardObjet = new Board();
-        ArrayList<Case> board = boardObjet.getBoard();
-        for (int i = 0; i < boardSize; i++) {
-            board.get(i).interaction(new Warrior());
-        }
-        System.out.println("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST");
+    public int throwDice() {
+        int dice = (int) (Math.random() * 6) + 1;
 
-
-        throwDice();
+        return dice;
     }
 
-    // Méthode pour lancer le dé et faire avancer le joueur
-    public void throwDice() {
+    public void move(Hero hero) throws PersonnageHorsPlateauException {
+        Board newBoard = new Board();
+        boolean game = false;
 
-        while (positionPlayer < boardSize) {
-            int dice; // Random dé
-            dice = (int) (Math.random() * 6) + 1;
-            System.out.println("Wohooo ton dé : " + dice);
-            System.out.println("Vous êtes maintenant sur la case " + positionPlayer + "/64");
+        while (!game) {
+            int dice = throwDice();
+            Scanner scan = new Scanner(System.in);
+            System.out.println("LANCER vos dès : press D");
+            String entry = scan.nextLine().toUpperCase();
 
+            if (entry.equals("D")) {
+                System.out.println("Wohooo ton dé : " + dice);
+                positionPlayer = getPositionPlayer() + dice;
+                hero.setPosition(positionPlayer);
 
-            // Avance le joueur sur le plateau =>
-            // positionPlayer = positionPlayer + dice
-            positionPlayer += dice;
+                positionPlayer += dice;
+                System.out.println("Vous êtes sur la case " + positionPlayer + "/64");
 
-            // Vérification si la position dépasse 64
-            if (positionPlayer > boardSize) {
-                positionPlayer = boardSize;
+                newBoard.getCase.interaction(hero);
+                System.out.println("POSITION de votre héros : " + hero.getPosition());
+
+                round++;
+                System.out.println("Au tour numéro : " + round);
+
+                if (positionPlayer > boardSize) {
+                    throw new PersonnageHorsPlateauException();
+                }
+            } else {
+                endGame(hero);
+                game = true;
             }
         }
-        System.out.println("Vous êtes sur la case " + positionPlayer + " sur " + boardSize);
-        endGame();
     }
 
-    public void endGame() {
-        Scanner pscanner = new Scanner(System.in);
+
+    public void endGame(Hero hero) throws PersonnageHorsPlateauException {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Félicitations ! Vous êtes arrivé à la fin du jeu.");
 
         // Demande au joueur s'il veut recommencer ou quitter
         System.out.println("Voulez-vous recommencer une partie ? (Oui/Non)");
-        setPositionPlayer(0);
-        String choix = pscanner.next();
+        setPositionPlayer(1);
+        String choix = scanner.next();
         if (choix.equalsIgnoreCase("Oui")) {
-            gameStart(); // Recommencer une partie
+            move(hero); // Recommencer une partie
         } else {
             System.out.println("Merci d'avoir joué. Au revoir !");
         }
@@ -77,12 +85,12 @@ public class Game {
         this.positionPlayer = positionPlayer;
     }
 
-    public int getBoardSize() {
-        return boardSize;
+    public Hero getHero() {
+        return hero;
     }
 
-    public void setBoardSize(int boardSize) {
-        this.boardSize = boardSize;
+    public void setHero(Hero hero) {
+        this.hero = hero;
     }
 
 

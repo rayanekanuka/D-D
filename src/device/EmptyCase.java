@@ -6,7 +6,6 @@ import characters.Hero;
  * Représente une case vide sur le plateau.
  */
 public class EmptyCase implements Case {
-
     /**
      * Affiche une description concernant la case vide.
      */

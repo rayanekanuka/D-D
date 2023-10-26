@@ -2,6 +2,7 @@ package device;
 
 import characters.Hero;
 import characters.Magician;
+import characters.PersonnageHorsPlateauException;
 import characters.Warrior;
 
 import java.util.Scanner;
@@ -34,8 +35,8 @@ public class Menu {
 
         // Tant que isReady est faux
         while (!isReady) {
-            Hero hero1;
-            Hero hero2;
+            Hero hero1 = null;
+//            Hero hero2 = null;
             // Affiche-moi ---->
             System.out.println("Que souhaitez-vous faire ?");
             System.out.println("* GUERRIER ou MAGICIEN ? Faites votre choix");
@@ -51,8 +52,12 @@ public class Menu {
                 case "JOUER" -> {
                     System.out.println("Aller commençons ! Faites-nous rêver :) ");
                     Game newGame = new Game();
-                    newGame.gameStart();
                     newGame.throwDice();
+                    try {
+                        newGame.move(hero1);
+                    } catch (PersonnageHorsPlateauException e) {
+                        throw new RuntimeException(e);
+                    }
                     isReady = true;
                 }
                 // dans le cas où l'utilisateur choisit le Guerrier
@@ -70,10 +75,10 @@ public class Menu {
                     System.out.println("Veuillez choisir le nom de votre Héros : ");
                     String playerName = scanner.nextLine().toUpperCase();
                     System.out.println("Vous avez choisi le " + playerChoice + ", préparez-vous à la bagarre !");
-                    hero2 = new Magician(playerName);
+                    hero1 = new Magician(playerName);
                     // isReady devient vrai ce qui permet de sortir de la boucle while
                     isReady = false;
-                    System.out.println(hero2);
+                    System.out.println(hero1);
                 }
                 case "ECHAP" -> {
                     // dans le cas où l'utilisateur choisi la touche ECHAP

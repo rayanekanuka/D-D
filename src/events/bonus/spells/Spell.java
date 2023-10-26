@@ -8,7 +8,7 @@ import characters.EquipementOffensif;
 public abstract class Spell extends EquipementOffensif {
     /**
      * Constructeur.
-     * param nom
+     * @param name le nom du Sort
      */
     public Spell(String name) {
         // Appelle le constructeur de la classe parent avec le nom du sort, pour le moment qu'un nom, mais il y aura bien d'autres choses plus tard.

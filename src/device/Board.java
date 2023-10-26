@@ -1,6 +1,7 @@
 package device;
 
 import characters.Hero;
+import characters.PersonnageHorsPlateauException;
 import events.bonus.potions.MaxPotion;
 import events.bonus.potions.NormalPotion;
 import events.bonus.spells.FireBall;
@@ -11,16 +12,20 @@ import events.enemies.Dragon;
 import events.enemies.Gobelin;
 import events.enemies.Sorcerer;
 
+import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 
 // Ici nous avons notre Plateau de jeu avec ses cases instanciées dans une ArrayList
 public class Board implements Case {
+
     public ArrayList<Case> getBoard() {
         return board;
     }
 
     private final ArrayList<Case> board;
     private int positionPlayer; // position actuelle du joueur
+    public Board getCase;
+
 
     /**
      * Constructeur.
@@ -44,6 +49,7 @@ public class Board implements Case {
                 case 28, 41 -> board.add(new MaxPotion(""));
                 default -> board.add(new EmptyCase());
             }
+            System.out.println("Vous êtes sur la case " + i + " = " + board.get(i));
         }
     }
 
