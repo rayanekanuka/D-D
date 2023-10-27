@@ -16,7 +16,7 @@ import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 
 // Ici nous avons notre Plateau de jeu avec ses cases instanciées dans une ArrayList
-public class Board implements Case {
+public class Board {
 
     public ArrayList<Case> getBoard() {
         return board;
@@ -31,7 +31,7 @@ public class Board implements Case {
      * Initialise un plateau de jeu et place le joueur.
      */
     public Board() {
-        board = new ArrayList<>(); // Initialisation de la liste du plateau
+        board = new ArrayList<Case>(); // Initialisation de la liste du plateau
         positionPlayer = 1; // Le joueur commence à la case 1
 
         // Instancier les Case sur le plateau
@@ -53,11 +53,6 @@ public class Board implements Case {
 
     public Case getCase(int positionPlayer) {
         return board.get(positionPlayer);
-    }
-
-    @Override
-    public void interaction(Hero hero) {
-
     }
 
 }

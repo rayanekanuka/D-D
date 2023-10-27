@@ -23,6 +23,15 @@ public abstract class Hero {
     protected int minStrength;
     protected int maxStrength;
 
+    /**
+     *
+     * @param name Le nom de mon constructeur Hero
+     * @param hp Health Points
+     * @param strength Force
+     * @param attack Attaque
+     * @param type Type
+     */
+
     public Hero(String name, int hp, int strength, int attack, String type) {
         this.name = name;
         this.hp = hp;
@@ -60,6 +69,11 @@ public abstract class Hero {
     }
 
     // GETTER & SETTER //
+
+    /**
+     *
+     * @return le type de mon Héros
+     */
     public String getType() {
         return type;
     }
@@ -72,10 +86,19 @@ public abstract class Hero {
         return name;
     }
 
+    /**
+     *
+     * @param name retourne le nom du héros choisi
+     */
     public void setName(String name) {
 
         this.name = name;
     }
+
+    /**
+     *
+     * @param hp Health Points que j'initialise avec les min et max
+     */
 
     public void setHp(int hp) {
         if (hp > this.maxHP) {
@@ -87,34 +110,70 @@ public abstract class Hero {
         }
     }
 
+    /**
+     *
+     * @return getter de ma force
+     */
+
     public int getStrength() {
         return strength;
     }
+
+    /**
+     *
+     * @param strength setter pour ma force
+     */
 
     public void setStrength(int strength) {
         this.strength = strength;
     }
 
+    /**
+     *
+     * @return récupère l'arme choisie
+     */
     public Weapon getWeapon() {
         return weapon;
     }
 
+    /**
+     *
+     * @param weapon setter de l'arme choisie
+     */
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
 
+    /**
+     *
+     * @return retourne les points d'attaque
+     */
     public int getAttack() {
         return attack;
     }
+
+    /**
+     *
+     * @param attack setter pour les points d'attaque
+     */
 
     public void setAttack(int attack) {
         this.attack = attack;
     }
 
+    /**
+     *
+     * @return retourne la position du joueur
+     */
+
     public int getPosition() {
         return position;
     }
 
+    /**
+     *
+     * @param position set la position du joueur
+     */
     public void setPosition(int position) {
         this.position = position;
     }

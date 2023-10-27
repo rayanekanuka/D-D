@@ -57,7 +57,7 @@ public class Menu {
                     try {
                         newGame.move(hero1);
                     } catch (Exception e) {
-                        System.out.println("Vous êtes allé trop loin ! C'EST PERDU ! (not implemented)");
+                        System.out.println("Vous êtes allé trop loin ! C'EST PERDU !");
                     }
                     isReady = true;
                 }

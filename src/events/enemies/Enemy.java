@@ -3,6 +3,7 @@ package events.enemies;
 import device.Case;
 
 public abstract class Enemy implements Case {
+
     protected String name;
     protected int hp;
     protected int attack;

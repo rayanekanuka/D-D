@@ -6,7 +6,7 @@ public class Sorcerer extends Enemy {
 
     /*
     public Sorcerer() {
-        this("Voldemort", 0, 0);
+        super("Voldemort", 0, 0);
     }
      */
 
