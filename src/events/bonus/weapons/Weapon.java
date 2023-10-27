@@ -13,5 +13,6 @@ public abstract class Weapon extends EquipementOffensif {
     public Weapon(String name) {
         // Appelle le constructeur de la classe parent avec le nom du sort, pour le moment qu'un nom, mais il y aura bien d'autres choses plus tard.
         super(name);
+        System.out.println(name);
     }
 }

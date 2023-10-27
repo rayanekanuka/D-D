@@ -9,6 +9,6 @@ public class Flash extends Spell {
 
     @Override
     public void interaction(Hero hero) {
-
+        System.out.println("Vous vous êtes pris un Eclair ! Aux abris !");
     }
 }

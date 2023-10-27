@@ -178,6 +178,10 @@ public abstract class Hero {
         this.position = position;
     }
 
+    /**
+     *
+     * @return un String donc des phrases à l'affichage
+     */
     @Override
     public String toString() {
         return "[ --------- Vous êtes un " + this.type + " --------- ]\n"

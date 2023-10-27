@@ -21,7 +21,7 @@ public class Menu {
 
     // Méthode chooseHero qui permet d'afficher le Menu et d'instancier le Hero ici
     // Si je veux l'utiliser ailleurs penser à la retourner (mot clé return)
-    public Hero chooseHero() {
+    public Hero chooseHero() throws PersonnageHorsPlateauException {
         Hero hero1 = new Magician("");
 
         System.out.println("\n" +
@@ -37,7 +37,6 @@ public class Menu {
 
         // Tant que isReady est faux
         while (!isReady) {
-
 
             // Affiche-moi ---->
             System.out.println("Que souhaitez-vous faire ?");
@@ -56,10 +55,10 @@ public class Menu {
                     Game newGame = new Game();
                     try {
                         newGame.move(hero1);
-                    } catch (Exception e) {
-                        System.out.println("Vous êtes allé trop loin ! C'EST PERDU !");
+                        isReady = true;
+                    } catch (PersonnageHorsPlateauException e) {
+                        System.out.println(e.getMessage());
                     }
-                    isReady = true;
                 }
                 // dans le cas où l'utilisateur choisit le Guerrier
                 case "GUERRIER" -> {

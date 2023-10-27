@@ -21,20 +21,23 @@ public class Game {
     }
 
     public void move(Hero hero) throws PersonnageHorsPlateauException {
-
-        hero.setPosition(1); // Case de depart
+        hero.setPosition(1); // Case de départ
         Board newBoard = new Board();
         boolean game = false;
 
         while (!game) {
-            int dice = throwDice();
             Scanner scan = new Scanner(System.in);
-            System.out.println("LANCER vos dès : press D");
+            System.out.println("LANCER vos dés : press D");
+            int dice = throwDice();
+
             String entry = scan.nextLine().toUpperCase();
 
             if (entry.equalsIgnoreCase("D")) {
                 System.out.println("Wohooo ton dé : " + dice);
-                hero.setPosition(hero.getPosition() +dice);
+                if (hero.getPosition() + dice > boardSize) {
+                    throw new PersonnageHorsPlateauException();
+                }
+                hero.setPosition(hero.getPosition() + dice);
                 System.out.println("Vous êtes sur la case " + hero.getPosition() + "/64");
 
                 newBoard.getCase(hero.getPosition()).interaction(hero);
@@ -43,16 +46,12 @@ public class Game {
                 round++;
                 System.out.println("Au tour numéro : " + round);
 
-                if (hero.getPosition() > boardSize) {
-                    throw new PersonnageHorsPlateauException();
-                }
             } else {
                 endGame(hero);
                 game = true;
             }
         }
     }
-
 
     public void endGame(Hero hero) throws PersonnageHorsPlateauException {
         Scanner scanner = new Scanner(System.in);
@@ -64,7 +63,8 @@ public class Game {
         String choix = scanner.next();
         if (choix.equalsIgnoreCase("Oui")) {
             move(hero); // Recommencer une partie
-        } else {
+        } else if (choix.equalsIgnoreCase("Non")) {
+            move(hero);
             System.out.println("Merci d'avoir joué. Au revoir !");
         }
     }

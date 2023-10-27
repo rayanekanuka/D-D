@@ -10,6 +10,6 @@ public class MaxPotion extends Potion implements Case {
 
     @Override
     public void interaction(Hero hero) {
-
+        System.out.println("Ohlala une SUPER potion pour vous remettre d'aplomb !");
     }
 }

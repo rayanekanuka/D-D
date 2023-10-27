@@ -10,6 +10,6 @@ public class Sword extends Weapon {
 
     @Override
     public void interaction(Hero hero) {
-        System.out.println("Vous avez une épée");
+        System.out.println("Vous avez récupéré une épée");
     }
 }

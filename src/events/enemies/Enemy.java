@@ -6,15 +6,15 @@ public abstract class Enemy implements Case {
 
     protected String name;
     protected int hp;
-    protected int attack;
 
-    public Enemy() {
+    protected int strength;
+
+    public Enemy(String name, int hp, int strength) {
+        this.name = name;
+        this.hp = hp;
+        this.strength = strength;
     }
 
+// ici combat avec les ennemis...
 
-  /*  public Enemy(String name, int healthPoints, int attackPoints) {
-        this.name = name;
-        this.hp = healthPoints;
-        this.attack = attackPoints;
-    } */
 }

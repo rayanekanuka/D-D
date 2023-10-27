@@ -9,6 +9,6 @@ public class Hammer extends Weapon{
 
     @Override
     public void interaction(Hero hero) {
-
+        System.out.println("Vous avez récupéré une massue !");
     }
 }

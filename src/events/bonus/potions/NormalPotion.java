@@ -9,6 +9,6 @@ public class NormalPotion extends Potion {
 
     @Override
     public void interaction(Hero hero) {
-
+        System.out.println("Joliii une potion pour reprendre un peu de vie");
     }
 }
