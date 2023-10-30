@@ -14,11 +14,11 @@ public class Sword extends Weapon {
 
     @Override
     public void interaction(Hero hero) {
-        System.out.println("Vous avez récupéré une épée");
+        System.out.println("Vous avez récupéré une épée \n" + this);
     }
 
     @Override
     public String toString() {
-        return "Nom de votre arme : " + this.name + "avec : " + this.strength + " de points de force !";
+        return "Cette " + this.name + "avec : " + this.strength + " de points de force !";
     }
 }

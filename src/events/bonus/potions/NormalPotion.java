@@ -14,11 +14,11 @@ public class NormalPotion extends Potion {
 
     @Override
     public String toString(){
-        return "Je suis une : " + this.name + " qui va te rendre " + this.hp + " points de vie !";
+        return "La " + this.name + ", va te rendre " + this.hp + " points de vie !";
     }
     @Override
     public void interaction(Hero hero) {
-        System.out.println("Joliii une petite potion pour reprendre un peu de vie \n" +this);
+        System.out.println("Joliii tu as trouvé, une petite potion \n" +this);
     }
 
 

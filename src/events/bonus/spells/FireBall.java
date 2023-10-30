@@ -9,6 +9,11 @@ public class FireBall extends Spell {
 
     @Override
     public void interaction(Hero hero) {
-        System.out.println("Vite cachez-vous une Boule de Feu vous a frôlé !");
+        System.out.println("Vite saisissez cette Boule de Feu ! \n" + this);
+    }
+
+    @Override
+    public String toString() {
+        return "Une " + this.name + " va s'abattre, avec : " + this.strength + " de points de force !";
     }
 }

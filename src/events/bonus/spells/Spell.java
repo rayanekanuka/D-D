@@ -7,6 +7,9 @@ import device.Case;
  * Représente un équipement offensif de type "Sort", pour les Magiciens.
  */
 public abstract class Spell extends EquipementOffensif implements Case {
+
+    protected String name;
+    protected int stragnth;
     /**
      * Constructeur.
      * @param name le nom du Sort
