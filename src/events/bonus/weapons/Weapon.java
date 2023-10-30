@@ -1,18 +1,19 @@
 package events.bonus.weapons;
 
 import characters.EquipementOffensif;
+import device.Case;
 
 /**
  * Représente un équipement offensif de type "Arme", pour les Guerriers.
  */
-public abstract class Weapon extends EquipementOffensif {
+public abstract class Weapon extends EquipementOffensif implements Case {
+
     /**
      * Constructeur.
      * @param name Le nom de l'Arme
      */
-    public Weapon(String name) {
-        // Appelle le constructeur de la classe parent avec le nom du sort, pour le moment qu'un nom, mais il y aura bien d'autres choses plus tard.
-        super(name);
-        System.out.println(name);
+    public Weapon(String name, int strength) {
+        // Appelle le constructeur de la classe parent avec le nom de l'arme et sa force.
+        super(name, strength);
     }
 }

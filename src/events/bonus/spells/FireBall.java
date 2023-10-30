@@ -3,8 +3,8 @@ package events.bonus.spells;
 import characters.Hero;
 
 public class FireBall extends Spell {
-    public FireBall(String name) {
-        super(name);
+    public FireBall(String name, int attack) {
+        super(name, attack);
     }
 
     @Override

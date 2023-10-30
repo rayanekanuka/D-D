@@ -21,7 +21,7 @@ public class Menu {
 
     // Méthode chooseHero qui permet d'afficher le Menu et d'instancier le Hero ici
     // Si je veux l'utiliser ailleurs penser à la retourner (mot clé return)
-    public Hero chooseHero() throws PersonnageHorsPlateauException {
+    public Hero chooseHero() {
         Hero hero1 = new Magician("");
 
         System.out.println("\n" +

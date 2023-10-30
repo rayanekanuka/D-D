@@ -10,10 +10,18 @@ public class Dragon extends Enemy {
 
     public Dragon() {
         this("Viserion", 15, 4);
-        }
+    }
+
+    @Override
+    public String toString() {
+        return " [ Ennemi = '" + name + '\'' +
+                ", Points de vie = " + hp +
+                ", Force d'Attaque = " + strength +
+                " ]";
+    }
 
     @Override
     public void interaction(Hero hero) {
-        System.out.println("Coucou Viserion, faite gaffe, ce Dragon ne rigole pas du tout !");
+        System.out.println("Faite gaffe, ce Dragon ne rigole pas du tout !\n" + this);
     }
 }
