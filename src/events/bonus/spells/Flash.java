@@ -3,8 +3,9 @@ package events.bonus.spells;
 import characters.Hero;
 
 public class Flash extends Spell {
-    public Flash(String name, int attack) {
-        super(name, attack);
+
+    public Flash() {
+        super("Éclair", 2);
     }
 
     @Override

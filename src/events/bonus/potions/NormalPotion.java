@@ -4,12 +4,8 @@ import characters.Hero;
 
 public class NormalPotion extends Potion {
 
-    public NormalPotion(String name, int hp) {
-        super(name, hp);
-    }
-
     public NormalPotion() {
-        this("Potion de soin normale", 2);
+        super("Potion de soin normale", 2);
     }
 
     @Override

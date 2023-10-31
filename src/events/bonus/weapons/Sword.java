@@ -4,12 +4,9 @@ package events.bonus.weapons;
 import characters.Hero;
 
 public class Sword extends Weapon {
-    public Sword(String name, int strength) {
-        super(name, strength);
-    }
 
     public Sword() {
-        this("Epée", 5);
+        super("Epée", 5);
     }
 
     @Override
@@ -19,6 +16,6 @@ public class Sword extends Weapon {
 
     @Override
     public String toString() {
-        return "Cette " + this.name + "avec : " + this.strength + " de points de force !";
+        return "Cette " + this.name + " avec : " + this.strength + " de points de force !";
     }
 }

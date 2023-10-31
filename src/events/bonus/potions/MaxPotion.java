@@ -4,12 +4,9 @@ import characters.Hero;
 import device.Case;
 
 public class MaxPotion extends Potion {
-    public MaxPotion(String name, int hp) {
-        super(name, hp);
-    }
 
     public MaxPotion() {
-        this("Sacrée potion de soin", 5);
+        super("Sacrée potion de soin", 5);
     }
 
     @Override

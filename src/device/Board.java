@@ -12,11 +12,8 @@ import events.enemies.Dragon;
 import events.enemies.Gobelin;
 import events.enemies.Sorcerer;
 
-import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import static java.util.Collections.*;
 
 // Ici nous avons notre Plateau de jeu avec ses cases instanciées dans une ArrayList
 public class Board {
@@ -43,15 +40,15 @@ public class Board {
                 case 45, 52, 56, 62 -> board.add(new Dragon());
                 case 10, 20, 25, 32, 35, 36, 37, 40, 44, 47 -> board.add(new Sorcerer());
                 case 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 -> board.add(new Gobelin());
-                case 2, 11, 5, 22, 38 -> board.add(new Hammer("", 0));
-                case 19, 26, 42, 53 -> board.add(new Sword("", 0));
-                case 1, 4, 8, 17, 23 -> board.add(new Flash("", 0));
-                case 48, 49 -> board.add(new FireBall("", 0));
+                case 2, 11, 5, 22, 38 -> board.add(new Hammer());
+                case 19, 26, 42, 53 -> board.add(new Sword());
+                case 1, 4, 8, 17, 23 -> board.add(new Flash());
+                case 48, 49 -> board.add(new FireBall());
                 case 7, 13, 31, 33, 39, 43 -> board.add(new NormalPotion());
                 case 28, 41 -> board.add(new MaxPotion());
                 default -> board.add(new EmptyCase());
             }
-            shuffle(board);
+            Collections.shuffle(board);
         }
     }
 

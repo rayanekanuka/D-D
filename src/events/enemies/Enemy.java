@@ -1,5 +1,6 @@
 package events.enemies;
 
+import characters.Hero;
 import device.Case;
 
 public abstract class Enemy implements Case {
@@ -14,6 +15,10 @@ public abstract class Enemy implements Case {
         this.strength = strength;
     }
 
+    @Override
+    public void interaction(Hero hero) {
+
+    }
 // ici combat avec les ennemis...
 
 }

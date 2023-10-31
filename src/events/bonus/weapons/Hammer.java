@@ -3,12 +3,9 @@ package events.bonus.weapons;
 import characters.Hero;
 
 public class Hammer extends Weapon{
-    public Hammer(String name, int attack) {
-        super(name, attack);
-    }
 
     public Hammer() {
-        this("Massue", 3);
+        super("Massue", 3);
     }
 
     @Override
@@ -18,6 +15,6 @@ public class Hammer extends Weapon{
 
     @Override
     public String toString() {
-        return "Nom de votre arme : " + this.name + "avec : " + this.strength + " de points de force !";
+        return "Prends cette " + this.name + " avec : " + this.strength + " de points de force !";
     }
 }

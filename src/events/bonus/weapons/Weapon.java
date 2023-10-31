@@ -1,15 +1,12 @@
 package events.bonus.weapons;
 
-import characters.EquipementOffensif;
-import characters.Hero;
 import device.Case;
+import events.bonus.EquipementOffensif;
 
 /**
  * Représente un équipement offensif de type "Arme", pour les Guerriers.
  */
 public abstract class Weapon extends EquipementOffensif implements Case {
-    protected String name;
-    protected int strength;
 
     /**
      * Constructeur.

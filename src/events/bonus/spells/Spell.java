@@ -1,6 +1,6 @@
 package events.bonus.spells;
 
-import characters.EquipementOffensif;
+import events.bonus.EquipementOffensif;
 import device.Case;
 
 /**
@@ -8,14 +8,12 @@ import device.Case;
  */
 public abstract class Spell extends EquipementOffensif implements Case {
 
-    protected String name;
-    protected int stragnth;
     /**
      * Constructeur.
      * @param name le nom du Sort
      */
     public Spell(String name, int attack) {
-        // Appelle le constructeur de la classe parent avec le nom du sort, pour le moment qu'un nom, mais il y aura bien d'autres choses plus tard.
+        // Appelle le constructeur de la classe parent avec le nom du sort et sa force
         super(name, attack);
     }
 }

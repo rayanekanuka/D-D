@@ -22,7 +22,7 @@ public class Menu {
     // Méthode chooseHero qui permet d'afficher le Menu et d'instancier le Hero ici
     // Si je veux l'utiliser ailleurs penser à la retourner (mot clé return)
     public Hero chooseHero() {
-        Hero hero1 = new Magician("");
+        Hero hero1 = new Warrior("");
 
         System.out.println("\n" +
                 "██████╗  ██████╗ ███╗   ██╗     ██╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
