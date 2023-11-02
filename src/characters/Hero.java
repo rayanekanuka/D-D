@@ -1,12 +1,13 @@
 package characters;
 
+import device.Fight;
 import events.bonus.weapons.Weapon;
 
 /**
  * Classe parent de Warrior et Magician, le Hero constructeur et les méthodes sont utilisées par les enfants
  */
 
-public abstract class Hero {
+public abstract class Hero implements Fight {
 
     protected String type;
     protected String name;
@@ -24,7 +25,7 @@ public abstract class Hero {
     protected int maxStrength;
 
     /**
-     *
+     * Constructeur pour Intialiser les attributs commus à tous les héros
      * @param name Le nom de mon constructeur Hero
      * @param hp Health Points
      * @param strength Force
@@ -45,7 +46,7 @@ public abstract class Hero {
     }
 
     /**
-     * Fonction principale de Hero,
+     * Constrcuteur de Hero,
      * @param name Nom du perso
      * @param hp Health Points
      * @param strength Force du perso
@@ -93,6 +94,10 @@ public abstract class Hero {
     public void setName(String name) {
 
         this.name = name;
+    }
+
+    public int getHp() {
+        return hp;
     }
 
     /**
@@ -184,13 +189,21 @@ public abstract class Hero {
      */
     @Override
     public String toString() {
-        return "[ --------- Vous êtes un " + this.type + " --------- ]\n"
-                + " --- Votre nom est : " + this.name + " --- \n"
-                + " [ Avec : " + this.strength + " points de force"
-                + " | Avec : " + this.hp + " points de vie"
-                + " | Avec : " + this.offensive + " en équipement offensif"
-                + " | Et avec : " + this.defensive + " en équipement défensif"
+        return "[ --------- Vous êtes un " + type + " --------- ]\n"
+                + " --- Votre nom est : " + name + " --- \n"
+                + " [ Avec : " + strength + " points de force"
+                + " | Avec : " + hp + " points de vie"
+                + " | Et avec : " + weapon + " en équipement offensif"
                 + " ]";
     }
 
+    @Override
+    public void receive(Fight fighter) {
+        this.hp -= fighter.getAttack();
+    }
+
+    @Override
+    public boolean isAlive() {
+        return this.hp > 0;
+    }
 }

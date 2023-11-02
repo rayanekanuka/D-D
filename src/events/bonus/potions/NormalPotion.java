@@ -1,6 +1,7 @@
 package events.bonus.potions;
 
 import characters.Hero;
+import device.Case;
 
 public class NormalPotion extends Potion {
 
@@ -9,13 +10,8 @@ public class NormalPotion extends Potion {
     }
 
     @Override
-    public String toString(){
-        return "La " + this.name + ", va te rendre " + this.hp + " points de vie !";
-    }
-    @Override
     public void interaction(Hero hero) {
         System.out.println("Joliii tu as trouvé, une petite potion \n" +this);
     }
-
 
 }

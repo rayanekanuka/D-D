@@ -10,6 +10,8 @@ import java.util.Scanner;
 public class Menu {
     //    Scanner grande classe qu'on initialise avec la méthode scanner
     private final Scanner scanner;
+    private Warrior hero1;
+    private Magician hero2;
 
     // Constructeur de la classe Menu;
     // Le scanner est utilisé pour obtenir les entrées de l'utilisateur
@@ -23,6 +25,7 @@ public class Menu {
     // Si je veux l'utiliser ailleurs penser à la retourner (mot clé return)
     public Hero chooseHero() {
         Hero hero1 = new Warrior("");
+        Hero hero2 = new Magician("");
 
         System.out.println("\n" +
                 "██████╗  ██████╗ ███╗   ██╗     ██╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
@@ -53,8 +56,10 @@ public class Menu {
                 case "JOUER" -> {
                     System.out.println("Aller commençons ! Faites-nous rêver :) ");
                     Game newGame = new Game();
+                    // ici j'attrappe une exception
                     try {
                         newGame.move(hero1);
+                        newGame.move(hero2);
                         isReady = true;
                     } catch (PersonnageHorsPlateauException e) {
                         System.out.println(e.getMessage());
@@ -66,7 +71,7 @@ public class Menu {
                     String playerName = scanner.nextLine().toUpperCase();
                     System.out.println("Vous avez choisi le " + playerChoice + ", préparez-vous à la bagarre !");
                     hero1 = new Warrior(playerName);
-                    // isReady devient vrai ce qui permet de sortir de la boucle while
+                    // isReady devient faux ce qui permet de sortir de la boucle while
                     isReady = false;
                     System.out.println(hero1);
                 }
@@ -75,13 +80,13 @@ public class Menu {
                     System.out.println("Veuillez choisir le nom de votre Héros : ");
                     String playerName = scanner.nextLine().toUpperCase();
                     System.out.println("Vous avez choisi le " + playerChoice + ", préparez-vous à la bagarre !");
-                    hero1 = new Magician(playerName);
-                    // isReady devient vrai ce qui permet de sortir de la boucle while
+                    hero2 = new Magician(playerName);
+                    // isReady devient faux ce qui permet de sortir de la boucle while
                     isReady = false;
-                    System.out.println(hero1);
+                    System.out.println(hero2);
                 }
                 case "ECHAP" -> {
-                    // dans le cas où l'utilisateur choisi la touche ECHAP
+                    // dans le cas où l'utilisateur choisi ECHAP
                     System.out.println("Oh nooon vous avez quitté le jeu ! A bientôt :) ");
                     // isReady devient vrai ce qui permet de sortir de la boucle while
                     isReady = true;
@@ -127,7 +132,8 @@ public class Menu {
         if (typeHero.equalsIgnoreCase("Guerrier")) {
             return hero1 = new Warrior(nameHero);
         } else {
-            return hero1 = new Magician(nameHero);
+            typeHero.equalsIgnoreCase("Magicien");
+            return hero2 = new Magician(nameHero);
         }
     }
 }

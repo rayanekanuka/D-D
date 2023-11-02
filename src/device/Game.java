@@ -2,15 +2,6 @@ package device;
 
 import characters.Hero;
 import characters.PersonnageHorsPlateauException;
-import events.bonus.potions.MaxPotion;
-import events.bonus.potions.NormalPotion;
-import events.bonus.spells.FireBall;
-import events.bonus.spells.Flash;
-import events.bonus.weapons.Hammer;
-import events.bonus.weapons.Sword;
-import events.enemies.Dragon;
-import events.enemies.Gobelin;
-import events.enemies.Sorcerer;
 
 import java.util.Scanner;
 
@@ -21,7 +12,6 @@ public class Game {
     public Game() {
         this.boardSize = 64; // plateau
         this.round = 0; // tour de jeu
-        Board bGame = new Board();
     }
 
     public int throwDice() {
@@ -56,13 +46,15 @@ public class Game {
                 round++;
                 System.out.println("Au tour numéro : " + round);
 
-            } else {
-                endGame(hero);
-                game = true;
+            } else if (hero.getPosition() >= boardSize) {
+                 {
+                     endGame(hero);
+                     game = true;
+                }
+
             }
         }
     }
-
 
 
     public void endGame(Hero hero) throws PersonnageHorsPlateauException {

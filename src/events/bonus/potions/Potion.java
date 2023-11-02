@@ -21,4 +21,8 @@ public abstract class Potion implements Case {
         this.name = name;
         this.hp = hp;
     }
+    @Override
+    public String toString(){
+        return "La " + this.name + ", va te rendre " + this.hp + " points de vie !";
+    }
 }

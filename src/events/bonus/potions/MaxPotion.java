@@ -10,12 +10,8 @@ public class MaxPotion extends Potion {
     }
 
     @Override
-    public String toString(){
-        return "La " + this.name + ", va te rendre " + this.hp + " points de vie !";
-    }
-    @Override
     public void interaction(Hero hero) {
-        System.out.println("Ohlala une SUPER potion pour vous remettre d'aplomb ! \n" + this);
+        System.out.println("Génial une SUPER potion pour vous remettre d'aplomb ! \n" + this);
     }
 
 }

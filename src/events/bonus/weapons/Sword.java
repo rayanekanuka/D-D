@@ -9,13 +9,13 @@ public class Sword extends Weapon {
         super("Epée", 5);
     }
 
+    /**
+     * Cette méthode gère l'interaction entre l'arme et un personnage. Uniquement guerrier.
+     * @param hero Le personnage avec lequel l'arme interagit.
+     */
     @Override
     public void interaction(Hero hero) {
         System.out.println("Vous avez récupéré une épée \n" + this);
     }
 
-    @Override
-    public String toString() {
-        return "Cette " + this.name + " avec : " + this.strength + " de points de force !";
-    }
 }

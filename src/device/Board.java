@@ -1,7 +1,6 @@
 package device;
 
 import characters.Hero;
-import characters.PersonnageHorsPlateauException;
 import events.bonus.potions.MaxPotion;
 import events.bonus.potions.NormalPotion;
 import events.bonus.spells.FireBall;
@@ -15,14 +14,11 @@ import events.enemies.Sorcerer;
 import java.util.ArrayList;
 import java.util.Collections;
 
-// Ici nous avons notre Plateau de jeu avec ses cases instanciées dans une ArrayList
-public class Board {
-
-    public ArrayList<Case> getBoard() {
-        return board;
-    }
-
-    private final ArrayList<Case> board;
+/**
+ * La classe BOARD représente le plateau de jeu et gère la génération des cases
+ */
+public class Board implements Case {
+    private final ArrayList<Case> board; // add - get - set - remove - clear - size
     private int positionPlayer; // position actuelle du joueur
 
 
@@ -52,8 +48,34 @@ public class Board {
         }
     }
 
+
+    // GETTER & SETTER
+
+    public ArrayList<Case> getBoard() {
+        return board;
+    }
+
+    public int getPositionPlayer() {
+        return positionPlayer;
+    }
+
+
+
+    /**
+     *
+     * @param positionPlayer
+     * @return la case actuelle du Joueur en fonction de sa position
+     */
     public Case getCase(int positionPlayer) {
         return board.get(positionPlayer);
     }
 
+    /**
+     * Gère l'interaction du joueur avec la case actuelle
+     * @param hero
+     */
+    @Override
+    public void interaction(Hero hero) {
+
+    }
 }
