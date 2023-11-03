@@ -1,6 +1,7 @@
 package events.bonus.spells;
 
 import characters.Hero;
+import characters.Magician;
 
 public class FireBall extends Spell {
 
@@ -11,6 +12,14 @@ public class FireBall extends Spell {
     @Override
     public void interaction(Hero hero) {
         System.out.println("Vite saisissez cette Boule de Feu ! \n" + this);
+        if (hero instanceof Magician) {
+            System.out.println("What a damn Salamèche!");
+            buff(hero);
+            System.out.println("Vous passez à " + hero.getStrength() + " de force, n'est-ce pas incroyable????");
+        } else {
+            System.out.println("Eh non tu n'a pas le QI pour l'utiliser musclor");
+
+        }
     }
 
     @Override

@@ -2,6 +2,8 @@ package characters;
 
 import device.Fight;
 import events.bonus.EquipementOffensif;
+import events.bonus.potions.Potion;
+import events.bonus.spells.Spell;
 import events.bonus.weapons.Weapon;
 
 /**
@@ -69,7 +71,28 @@ public abstract class Hero implements Fight {
     }
 
 
+
+
     // GETTER & SETTER //
+
+    public void updateHp(Potion potion) {
+        if ((this.getHp() + potion.getHp()) > 15) {
+            System.out.println("Vous avez déjà trop de vie pour en reprendre gouja !");
+        } else {
+            this.setHpAfterAction(this.getHp() + potion.getHp());
+        }
+    }
+
+    private void setHpAfterAction(int i) {
+    }
+
+    public void updatePhysicalStrength(EquipementOffensif equipementOffensif) {
+        this.setStrength(this.getStrength() + equipementOffensif.getStrength());
+    }
+
+    public void updateMagicalStrength(Spell spell) {
+        this.setStrength(this.getStrength() + spell.getStrength());
+    }
 
     /**
      *
@@ -87,10 +110,6 @@ public abstract class Hero implements Fight {
         return name;
     }
 
-    /**
-     *
-     * @param name retourne le nom du héros choisi
-     */
     public void setName(String name) {
 
         this.name = name;
@@ -114,23 +133,18 @@ public abstract class Hero implements Fight {
             this.hp = hp;
         }
     }
-
-    /**
-     *
-     * @return getter de ma force
-     */
-
     public int getStrength() {
         return strength;
     }
 
-    /**
-     *
-     * @param strength setter pour ma force
-     */
-
     public void setStrength(int strength) {
-        this.strength = strength;
+        if (strength > maxStrength) {
+            this.strength = this.maxStrength;
+        } else if (strength < minStrength) {
+            this.strength = this.minStrength;
+        } else {
+            this.strength = strength;
+        }
     }
 
     public EquipementOffensif getEquipementOffensif() {
@@ -141,45 +155,22 @@ public abstract class Hero implements Fight {
         this.equipementOffensif = equipementOffensif;
     }
 
-
-    /**
-     *
-     * @return retourne les points d'attaque
-     */
     public int getAttack() {
         return attack;
     }
-
-    /**
-     *
-     * @param attack setter pour les points d'attaque
-     */
-
     public void setAttack(int attack) {
         this.attack = attack;
     }
-
-    /**
-     *
-     * @return retourne la position du joueur
-     */
 
     public int getPosition() {
         return position;
     }
 
-    /**
-     *
-     * @param position set la position du joueur
-     */
     public void setPosition(int position) {
         this.position = position;
     }
 
-    /**
-     *
-     * @return un String donc des phrases à l'affichage
-     */
+
     @Override
     public String toString() {
         return "[ --------- Vous êtes un " + type + " --------- ]\n"

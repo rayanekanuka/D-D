@@ -20,15 +20,13 @@ public abstract class EquipementOffensif implements Case {
         this.strength = strength;
     }
 
-    // Getters et Setters
-
-    /**
-     * Obtient le nom.
-     * @return Le nom de l'équipement offensif.
-     */
-    public String getName(String name) {
+    @Override
+    public String toString() {
         return name;
     }
+
+
+    // Getters et Setters
 
     /**
      * Définit le nom.
@@ -42,9 +40,17 @@ public abstract class EquipementOffensif implements Case {
      * Retourne le String de l'équipement.
      * @return le nom de l'équipement offensif.
      */
-    @Override
-    public String toString() {
+
+    public String getName() {
         return name;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
 }

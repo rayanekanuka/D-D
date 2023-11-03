@@ -19,11 +19,14 @@ public abstract class Weapon extends EquipementOffensif {
         super(name, strength);
     }
 
+    public void buff(Hero hero){
+        hero.updatePhysicalStrength(this);
+    }
+
     @Override
     public String toString() {
         return "Prends cette " + this.name + " avec : " + this.strength + " de points de force !";
     }
-
 
 
 }

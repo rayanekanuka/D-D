@@ -1,6 +1,7 @@
 package events.bonus.weapons;
 
 import characters.Hero;
+import characters.Warrior;
 
 public class Hammer extends Weapon{
 
@@ -15,6 +16,13 @@ public class Hammer extends Weapon{
     @Override
     public void interaction(Hero hero) {
         System.out.println("Vous avez récupéré une massue ! \n" + this);
+            if (hero instanceof Warrior) {
+                System.out.println("Une bien belle massue que voilà !");
+                buff(hero);
+                System.out.println("Vous passez à " + hero.getStrength() + " de force, n'est-ce pas incroyable????");
+            } else {
+                System.out.println("Eh non tu ne peux pas te servir de ça petit homme en robe");
+            }
     }
 
 

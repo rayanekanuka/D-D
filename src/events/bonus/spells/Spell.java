@@ -1,5 +1,6 @@
 package events.bonus.spells;
 
+import characters.Hero;
 import events.bonus.EquipementOffensif;
 import device.Case;
 
@@ -16,4 +17,9 @@ public abstract class Spell extends EquipementOffensif {
         // Appelle le constructeur de la classe parent avec le nom du sort et sa force
         super(name, attack);
     }
+
+    public void buff(Hero hero){
+        hero.updateMagicalStrength(this);
+    }
+
 }

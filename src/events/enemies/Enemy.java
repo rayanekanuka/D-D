@@ -9,10 +9,11 @@ import java.util.Scanner;
 
 public abstract class Enemy implements Case, Fight {
 
-
     protected String name;
     protected int hp;
     protected int strength;
+
+
 
     public Enemy(String name, int hp, int strength) {
         this.name = name;
@@ -23,29 +24,28 @@ public abstract class Enemy implements Case, Fight {
     public void attack(Hero hero) {
         System.out.println("Vous tombez nez à nez avec un terrifiant " + this.name + " !");
 
-        while ((hero.getHp() > 0) && (this.hp > 0)) {
+        while ((hero.isAlive()) && (this.isAlive())) {
             Scanner fight = new Scanner(System.in);
             System.out.println("Souhaitez-vous Combattre (C) ou Fuir (F) ?");
             String answer = fight.nextLine().toUpperCase();
             if (answer.equals("C")) {
                 this.hp = this.hp - hero.getStrength();
-                if (this.hp <= 0) {
+                if (hero.getHp() <= 0) {
                     System.out.println("GOOOSH TU AS BESOIN D'UN REMONTANT !");
                     break;
                 }
 
                 if (this.hp <= 0) {
-                    System.out.println(this.name + " est complètement mort | fait gaffe tu n'as plus que " + hero.getHp() + " points de vie !");
+                    System.out.println(this.name + " est complètement mort | fait gaffe tu n'as plus que " + (hero.getHp() - this.strength) + " points de vie !");
                     break;
                 } else if (hero.getHp() <= 0) {
                     System.out.println("Zut t'es mort =/ ");
                     break;
-
                 } else {
                     System.out.println("Vous venez de l'attaquer, il vous reste toujours " + hero.getHp() + " points de vie et " + this.hp + " au " + this.name + " mais attention il se prépare à riposter ");
                     hero.setAttack(hero.getHp() - this.strength);
                     System.out.println("Vous vous êtes fait attaqué de " + this.strength);
-                    System.out.println("Votre vie est désormais de " + hero.getHp());
+                    System.out.println("Votre vie est désormais de " + (hero.getHp() - this.strength));
                 }
             } else if (answer.equals("F")) {
                 Random rand = new Random();
