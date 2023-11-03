@@ -25,5 +25,6 @@ public class Hammer extends Weapon{
             }
     }
 
+    // AJOUTER EQUIPMT OFFENSIF (càd qu'il prend en compte l'arme prise et change la strength)
 
 }

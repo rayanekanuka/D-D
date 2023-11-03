@@ -64,9 +64,9 @@ public abstract class Hero implements Fight {
         this.strength = strength;
         this.attack = attack;
         this.type = type;
-        this.minHP = 5;
+        this.minHP = 0;
         this.maxHP = 10;
-        this.minStrength = 5;
+        this.minStrength = 0;
         this.maxStrength = 10;
     }
 
@@ -76,14 +76,11 @@ public abstract class Hero implements Fight {
     // GETTER & SETTER //
 
     public void updateHp(Potion potion) {
-        if ((this.getHp() + potion.getHp()) > 15) {
+        if ((this.getHp() + potion.getHp() < this.maxHP)) {
             System.out.println("Vous avez déjà trop de vie pour en reprendre gouja !");
         } else {
-            this.setHpAfterAction(this.getHp() + potion.getHp());
+            this.setHp(this.getHp() + potion.getHp());
         }
-    }
-
-    private void setHpAfterAction(int i) {
     }
 
     public void updatePhysicalStrength(EquipementOffensif equipementOffensif) {

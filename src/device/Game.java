@@ -25,7 +25,7 @@ public class Game {
         Board newBoard = new Board();
         boolean game = false;
 
-        while (!game) {
+        while (!game && hero.isAlive()) {
             Scanner scan = new Scanner(System.in);
             System.out.println("LANCER vos dés : press D");
             int dice = throwDice();

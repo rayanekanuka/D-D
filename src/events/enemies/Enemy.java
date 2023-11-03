@@ -13,8 +13,6 @@ public abstract class Enemy implements Case, Fight {
     protected int hp;
     protected int strength;
 
-
-
     public Enemy(String name, int hp, int strength) {
         this.name = name;
         this.hp = hp;
@@ -30,23 +28,22 @@ public abstract class Enemy implements Case, Fight {
             String answer = fight.nextLine().toUpperCase();
             if (answer.equals("C")) {
                 this.hp = this.hp - hero.getStrength();
-                if (hero.getHp() <= 0) {
-                    System.out.println("GOOOSH TU AS BESOIN D'UN REMONTANT !");
-                    break;
-                }
-
+//                if (hero.getHp() <= 0) {
+//                    System.out.println("Zut t'es mort =/  !");
+//                    break;
+//                }
                 if (this.hp <= 0) {
-                    System.out.println(this.name + " est complètement mort | fait gaffe tu n'as plus que " + (hero.getHp() - this.strength) + " points de vie !");
+                    System.out.println(this.name + " est complètement mort | fait gaffe tu n'as plus que " + hero.getHp() + " points de vie !");
                     break;
-                } else if (hero.getHp() <= 0) {
-                    System.out.println("Zut t'es mort =/ ");
-                    break;
+
                 } else {
                     System.out.println("Vous venez de l'attaquer, il vous reste toujours " + hero.getHp() + " points de vie et " + this.hp + " au " + this.name + " mais attention il se prépare à riposter ");
-                    hero.setAttack(hero.getHp() - this.strength);
+                    hero.setHp(hero.getHp() - this.strength);
                     System.out.println("Vous vous êtes fait attaqué de " + this.strength);
-                    System.out.println("Votre vie est désormais de " + (hero.getHp() - this.strength));
+
+                    System.out.println("Votre vie est désormais de " + hero.getHp());
                 }
+
             } else if (answer.equals("F")) {
                 Random rand = new Random();
                 int pose = rand.nextInt(6) + 1;
