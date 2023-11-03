@@ -1,6 +1,7 @@
 package characters;
 
 import device.Fight;
+import events.bonus.EquipementOffensif;
 import events.bonus.weapons.Weapon;
 
 /**
@@ -14,15 +15,37 @@ public abstract class Hero implements Fight {
     protected int hp;
     protected int strength;
     protected int attack;
-    protected Weapon weapon;
+    protected EquipementOffensif equipementOffensif;
     protected int position;
-    protected String offensive;
-    protected String defensive;
-
     protected int minHP;
     protected int maxHP;
     protected int minStrength;
     protected int maxStrength;
+
+    /**
+     * Constrcuteur de Hero,
+     * @param name Nom du perso
+     * @param hp Health Points
+     * @param strength Force du perso
+     * @param attack Attaque
+     * @param type Type de perso
+     * @param minHP min Health Points
+     * @param maxHP max Health Points
+     * @param minStrength min Force
+     * @param maxStrength max Force
+     */
+    public Hero(String name, int hp, int strength, int attack, String type, int minHP, int maxHP, int minStrength, int maxStrength, EquipementOffensif equipementOffensif) {
+        this.name = name;
+        this.hp = hp;
+        this.strength = strength;
+        this.attack = attack;
+        this.type = type;
+        this.minHP = minHP;
+        this.maxHP = maxHP;
+        this.minStrength = minStrength;
+        this.maxStrength = maxStrength;
+        this.equipementOffensif = equipementOffensif;
+    }
 
     /**
      * Constructeur pour Intialiser les attributs commus à tous les héros
@@ -45,29 +68,6 @@ public abstract class Hero implements Fight {
         this.maxStrength = 10;
     }
 
-    /**
-     * Constrcuteur de Hero,
-     * @param name Nom du perso
-     * @param hp Health Points
-     * @param strength Force du perso
-     * @param attack Attaque
-     * @param type Type de perso
-     * @param minHP min Health Points
-     * @param maxHP max Health Points
-     * @param minStrength min Force
-     * @param maxStrength max Force
-     */
-    public Hero(String name, int hp, int strength, int attack, String type, int minHP, int maxHP, int minStrength, int maxStrength) {
-        this.name = name;
-        this.hp = hp;
-        this.strength = strength;
-        this.attack = attack;
-        this.type = type;
-        this.minHP = minHP;
-        this.maxHP = maxHP;
-        this.minStrength = minStrength;
-        this.maxStrength = maxStrength;
-    }
 
     // GETTER & SETTER //
 
@@ -133,21 +133,14 @@ public abstract class Hero implements Fight {
         this.strength = strength;
     }
 
-    /**
-     *
-     * @return récupère l'arme choisie
-     */
-    public Weapon getWeapon() {
-        return weapon;
+    public EquipementOffensif getEquipementOffensif() {
+        return equipementOffensif;
     }
 
-    /**
-     *
-     * @param weapon setter de l'arme choisie
-     */
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
+    public void setEquipementOffensif(EquipementOffensif equipementOffensif) {
+        this.equipementOffensif = equipementOffensif;
     }
+
 
     /**
      *
@@ -193,7 +186,7 @@ public abstract class Hero implements Fight {
                 + " --- Votre nom est : " + name + " --- \n"
                 + " [ Avec : " + strength + " points de force"
                 + " | Avec : " + hp + " points de vie"
-                + " | Et avec : " + weapon + " en équipement offensif"
+                + " | Et avec : " + equipementOffensif + " en équipement offensif"
                 + " ]";
     }
 

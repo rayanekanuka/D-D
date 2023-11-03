@@ -15,5 +15,6 @@ public class Dragon extends Enemy {
     @Override
     public void interaction(Hero hero) {
         System.out.println("Faite gaffe, ce Dragon ne rigole pas du tout !\n" + this);
+        super.attack(hero);
     }
 }

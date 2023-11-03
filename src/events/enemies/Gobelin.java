@@ -14,5 +14,6 @@ public class Gobelin extends Enemy {
     @Override
     public void interaction(Hero hero) {
         System.out.println("Hey c'est le Gobelin, nouvel habitant de la Moria ! \n" + this);
+        super.attack(hero);
     }
 }
