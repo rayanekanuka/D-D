@@ -16,6 +16,7 @@ import java.util.Collections;
 
 /**
  * La classe BOARD représente le plateau de jeu et gère la génération des cases
+ * Nous avons ici une ArrayList qui représente une collection d'objets que l'on ajoute à notre plateau
  */
 public class Board implements Case {
     private final ArrayList<Case> board; // add - get - set - remove - clear - size
@@ -44,7 +45,7 @@ public class Board implements Case {
                 case 28, 41 -> board.add(new MaxPotion());
                 default -> board.add(new EmptyCase());
             }
-            Collections.shuffle(board);
+            Collections.shuffle(board); // permet de rendre mon groupe d'objets (ici les cases) aléatoires
         }
     }
 
@@ -58,8 +59,6 @@ public class Board implements Case {
     public int getPositionPlayer() {
         return positionPlayer;
     }
-
-
 
     /**
      *

@@ -2,7 +2,9 @@ package characters;
 
 import events.bonus.weapons.Hammer;
 
-// Classe Warrior héritée de la classe parent Hero
+/**
+ * Classe Warrior héritée de la classe parent Hero
+ */
 public class Warrior extends Hero {
     public Warrior(String name) {
         super(name, 5, 5, 5, "Warrior", 0, 10, 0, 10, new Hammer());

@@ -17,7 +17,6 @@ public class Menu {
     // Le scanner est utilisé pour obtenir les entrées de l'utilisateur
 
     public Menu(Scanner scanner) {
-
         this.scanner = scanner;
     }
 

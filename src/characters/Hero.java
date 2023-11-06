@@ -39,6 +39,7 @@ public abstract class Hero implements Fight {
      * @param maxHP max Health Points
      * @param minStrength min Force
      * @param maxStrength max Force
+     * @param equipementOffensif équipement Offensif
      */
     public Hero(String name, int hp, int strength, int attack, String type, int minHP, int maxHP, int minStrength, int maxStrength, EquipementOffensif equipementOffensif) {
         this.name = name;
@@ -82,7 +83,7 @@ public abstract class Hero implements Fight {
      * @param potion
      */
     public void updateHp(Potion potion) {
-        if ((this.getHp() + potion.getHp() < this.maxHP)) {
+        if ((this.getHp() + potion.getHp() > this.maxHP)) {
             System.out.println("Vous avez déjà trop de vie pour en reprendre gouja !");
         } else {
             this.setHp(this.getHp() + potion.getHp());
