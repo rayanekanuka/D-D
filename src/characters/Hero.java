@@ -12,6 +12,10 @@ import events.bonus.weapons.Weapon;
 
 public abstract class Hero implements Fight {
 
+    /**
+     * Attributs de la classe Hero
+     */
+
     protected String type;
     protected String name;
     protected int hp;
@@ -25,7 +29,7 @@ public abstract class Hero implements Fight {
     protected int maxStrength;
 
     /**
-     * Constrcuteur de Hero,
+     * Constructeur pour Initialiser les attributs communs à tous les héros
      * @param name Nom du perso
      * @param hp Health Points
      * @param strength Force du perso
@@ -50,7 +54,7 @@ public abstract class Hero implements Fight {
     }
 
     /**
-     * Constructeur pour Intialiser les attributs commus à tous les héros
+     * Constructeur pour Initialiser les attributs communs à tous les héros
      * @param name Le nom de mon constructeur Hero
      * @param hp Health Points
      * @param strength Force
@@ -65,16 +69,18 @@ public abstract class Hero implements Fight {
         this.attack = attack;
         this.type = type;
         this.minHP = 0;
-        this.maxHP = 10;
+        this.maxHP = 15;
         this.minStrength = 0;
-        this.maxStrength = 10;
+        this.maxStrength = 15;
     }
-
-
 
 
     // GETTER & SETTER //
 
+    /**
+     * Méthode qui update les Health Points du joueur s'il prend une potion
+     * @param potion
+     */
     public void updateHp(Potion potion) {
         if ((this.getHp() + potion.getHp() < this.maxHP)) {
             System.out.println("Vous avez déjà trop de vie pour en reprendre gouja !");
@@ -83,17 +89,25 @@ public abstract class Hero implements Fight {
         }
     }
 
+    /**
+     * Méthode qui update la force d'attaque du Guerrier dès qu'il prend une arme
+     * @param equipementOffensif
+     */
     public void updatePhysicalStrength(EquipementOffensif equipementOffensif) {
         this.setStrength(this.getStrength() + equipementOffensif.getStrength());
     }
 
+    /**
+     * Méthode qui update la force d'attaque du Magicien dès qu'il prend un sort
+     * @param spell
+     */
     public void updateMagicalStrength(Spell spell) {
         this.setStrength(this.getStrength() + spell.getStrength());
     }
 
     /**
      *
-     * @return le type de mon Héros
+     * @return le type du personnage
      */
     public String getType() {
         return type;
@@ -101,17 +115,24 @@ public abstract class Hero implements Fight {
 
     /**
      *
-     * @return le nom de mon Héros
+     * @return le nom du personnage
      */
     public String getName() {
         return name;
     }
 
+    /**
+     * Modifie le nom du personnage
+     * @param name
+     */
     public void setName(String name) {
-
         this.name = name;
     }
 
+    /**
+     * Obtient le niveau de vie
+     * @return les Health Points
+     */
     public int getHp() {
         return hp;
     }
@@ -119,6 +140,7 @@ public abstract class Hero implements Fight {
     /**
      *
      * @param hp Health Points que j'initialise avec les min et max
+     *           Définit le niveau de vie min et max du personnage
      */
 
     public void setHp(int hp) {
@@ -130,9 +152,20 @@ public abstract class Hero implements Fight {
             this.hp = hp;
         }
     }
+
+    /**
+     *
+     * @return la force d'attaque du personnage
+     */
     public int getStrength() {
         return strength;
     }
+
+    /**
+     * Modifie la force d'attaque du personnage
+     * @param strength Force que j'initialise avec les min et max
+     *                 Définit le niveau min et max de la force d'attaque
+     */
 
     public void setStrength(int strength) {
         if (strength > maxStrength) {
@@ -144,45 +177,81 @@ public abstract class Hero implements Fight {
         }
     }
 
+    /**
+     * Définit l'équipement offensif du personnage
+     * @return
+     */
     public EquipementOffensif getEquipementOffensif() {
         return equipementOffensif;
     }
 
+    /**
+     * Modifie l'équipement offensif du personnage
+     * @param equipementOffensif
+     */
     public void setEquipementOffensif(EquipementOffensif equipementOffensif) {
         this.equipementOffensif = equipementOffensif;
     }
 
+    /**
+     *
+     * @return le nombre de points d'attaque
+     */
     public int getAttack() {
         return attack;
     }
+
+    /**
+     * Modifie le nombre de points d'attaque
+     * @param attack
+     */
     public void setAttack(int attack) {
         this.attack = attack;
     }
 
+    /**
+     *
+     * @return La position du joueur
+     */
     public int getPosition() {
         return position;
     }
 
+    /**
+     * Modifie la position du joueur
+     * @param position
+     */
     public void setPosition(int position) {
         this.position = position;
     }
 
-
+    /**
+     * Méthode qui rassemble toutes les informations du personnage sous format texte
+     * @return les informations du personnage
+     */
     @Override
     public String toString() {
         return "[ --------- Vous êtes un " + type + " --------- ]\n"
                 + " --- Votre nom est : " + name + " --- \n"
                 + " [ Avec : " + strength + " points de force"
                 + " | Avec : " + hp + " points de vie"
-                + " | Et avec : " + equipementOffensif + " en équipement offensif"
+                + " | " + equipementOffensif
                 + " ]";
     }
 
+    /**
+     * Méthode qui sert à encaisser les coups
+     * @param fighter qui encaisse les coups
+     */
     @Override
     public void receive(Fight fighter) {
         this.hp -= fighter.getAttack();
     }
 
+    /**
+     * Méthode sous format de booléen qui permet de savoir si le personnage est vivant ou mort
+     * @return si le personnage est vivant
+     */
     @Override
     public boolean isAlive() {
         return this.hp > 0;

@@ -24,7 +24,4 @@ public class Hammer extends Weapon{
                 System.out.println("Eh non tu ne peux pas te servir de ça petit homme en robe");
             }
     }
-
-    // AJOUTER EQUIPMT OFFENSIF (càd qu'il prend en compte l'arme prise et change la strength)
-
 }

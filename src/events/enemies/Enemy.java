@@ -67,7 +67,6 @@ public abstract class Enemy implements Case, Fight {
         hero.setPosition(position);
     }
 
-
     // GETTER & SETTER
 
     public String getName() {
