@@ -28,14 +28,13 @@ public abstract class Enemy implements Case, Fight {
             String answer = fight.nextLine().toUpperCase();
             if (answer.equals("C")) {
                 this.hp = this.hp - hero.getStrength();
-//                if (hero.getHp() <= 0) {
-//                    System.out.println("Zut t'es mort =/  !");
-//                    break;
-//                }
                 if (this.hp <= 0) {
                     System.out.println(this.name + " est complètement mort | fait gaffe tu n'as plus que " + hero.getHp() + " points de vie !");
                     break;
-
+                }
+                if (hero.getHp() <= 0) {
+                    System.out.println("Zut t'es mort =/  !");
+                    break;
                 } else {
                     System.out.println("Vous venez de l'attaquer, il vous reste toujours " + hero.getHp() + " points de vie et " + this.hp + " au " + this.name + " mais attention il se prépare à riposter ");
                     hero.setHp(hero.getHp() - this.strength);
@@ -52,6 +51,7 @@ public abstract class Enemy implements Case, Fight {
                 break;
             }
         }
+
     }
 
 

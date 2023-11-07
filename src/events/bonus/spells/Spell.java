@@ -22,4 +22,9 @@ public abstract class Spell extends EquipementOffensif {
         hero.updateMagicalStrength(this);
     }
 
+    @Override
+    public String toString() {
+        return "Prends cet " + this.name + " avec : " + this.strength + " de points de force !";
+    }
+
 }

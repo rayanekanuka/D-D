@@ -2,7 +2,6 @@ package device;
 
 import characters.Hero;
 import characters.Magician;
-import characters.PersonnageHorsPlateauException;
 import characters.Warrior;
 
 import java.sql.SQLException;
@@ -25,16 +24,16 @@ public class Menu {
     private int affichageMenu() {
         // Affiche-moi ---->
         System.out.println("Que souhaitez-vous faire ?");
-        System.out.println("1 Créer un personnage.");
-        System.out.println("2 Modifier le personnage.");
-        System.out.println("3 JOUER !");
-        System.out.println("4 ECHAP pour quitter le jeu");
+        System.out.println("[1] Créer un personnage");
+        System.out.println("[2] Modifier le personnage");
+        System.out.println("[3] JOUER !");
+        System.out.println("[4] Quitter le jeu");
         int playerChoice = scanner.nextInt();
         return playerChoice;
     }
 
     public void gameMenu() {
-        decoinutile();
+        decoMenu();
         // Je crée un booléan de vérification que je détermine comme faux
         boolean isReady = false;
         Game game = new Game();
@@ -43,7 +42,7 @@ public class Menu {
         while (!isReady) {
             switch (affichageMenu()) {
                 case 1 -> { hero = newHero(); System.out.println(hero); }
-                case 2 -> hero = modifyHero();
+                case 2 -> { if (hero != null) hero = modifyHero(); }
                 case 3 -> { if (hero != null) game.move(hero); }
                 case 4 -> {
                     System.out.println("Oh nooon vous avez quitté le jeu ! A bientôt :) ");
@@ -58,14 +57,13 @@ public class Menu {
     public Hero newHero() {
         Scanner newHero = new Scanner(System.in);
         System.out.print("Taper le nom : ");
-        String nameHero = newHero.nextLine();
+        String nameHero = newHero.nextLine().toUpperCase();
 
-        System.out.print("Taper le Type : Magicien ou Guerrier ");
-        String typeHero = newHero.nextLine();
+        System.out.print("Taper le Type : Magicien ou Guerrier ? ");
+        String typeHero = newHero.nextLine().toUpperCase();
 
         if (typeHero.equalsIgnoreCase("Guerrier")) {
             return hero = new Warrior(nameHero);
-
         } else {
             typeHero.equalsIgnoreCase("Magicien");
             return hero = new Magician(nameHero);
@@ -108,7 +106,7 @@ public class Menu {
         }
     }
 
-    private void decoinutile() {
+    private void decoMenu() {
         System.out.println("\n" +
                 "██████╗  ██████╗ ███╗   ██╗     ██╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
                 "██╔══██╗██╔═══██╗████╗  ██║     ██║██╔═══██╗████╗  ██║██╔════╝       ██║       ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔═══██╗████╗  ██║██╔════╝\n" +

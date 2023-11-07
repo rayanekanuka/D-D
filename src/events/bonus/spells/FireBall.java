@@ -21,9 +21,4 @@ public class FireBall extends Spell {
 
         }
     }
-
-    @Override
-    public String toString() {
-        return "Une " + this.name + " va s'abattre, avec : " + this.strength + " de points de force !";
-    }
 }

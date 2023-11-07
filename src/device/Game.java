@@ -25,7 +25,7 @@ public class Game {
             try {
                 board.movePlayer();
                 Case caseActuelle = board.getCase();
-                System.out.println("Vous êtes sur la case " + caseActuelle + "/64");
+                System.out.println("Vous êtes sur la case " + board.getPositionPlayer() + "/64");
                 caseActuelle.interaction(hero);
                 round++;
                 System.out.println("Au tour numéro : " + round);

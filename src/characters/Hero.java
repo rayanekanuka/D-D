@@ -186,7 +186,6 @@ public abstract class Hero implements Fight {
         return equipementOffensif;
     }
 
-
     /**
      *
      * @return le nombre de points d'attaque
@@ -194,8 +193,6 @@ public abstract class Hero implements Fight {
     public int getAttack() {
         return attack;
     }
-
-
 
     /**
      *

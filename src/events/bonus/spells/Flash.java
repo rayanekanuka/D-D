@@ -20,9 +20,4 @@ public class Flash extends Spell {
             System.out.println("Eh non tu n'as pas le QI pour l'utiliser musclor");
         }
     }
-
-    @Override
-    public String toString() {
-        return "Un " + this.name + " va s'abattre, avec : " + this.strength + " de points de force !";
-    }
 }
