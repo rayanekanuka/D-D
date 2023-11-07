@@ -186,13 +186,6 @@ public abstract class Hero implements Fight {
         return equipementOffensif;
     }
 
-    /**
-     * Modifie l'équipement offensif du personnage
-     * @param equipementOffensif
-     */
-    public void setEquipementOffensif(EquipementOffensif equipementOffensif) {
-        this.equipementOffensif = equipementOffensif;
-    }
 
     /**
      *
@@ -202,13 +195,7 @@ public abstract class Hero implements Fight {
         return attack;
     }
 
-    /**
-     * Modifie le nombre de points d'attaque
-     * @param attack
-     */
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
+
 
     /**
      *

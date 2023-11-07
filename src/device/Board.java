@@ -1,6 +1,7 @@
 package device;
 
 import characters.Hero;
+import characters.PersonnageHorsPlateauException;
 import events.bonus.potions.MaxPotion;
 import events.bonus.potions.NormalPotion;
 import events.bonus.spells.FireBall;
@@ -13,6 +14,7 @@ import events.enemies.Sorcerer;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 /**
  * La classe BOARD représente le plateau de jeu et gère la génération des cases
@@ -45,10 +47,39 @@ public class Board implements Case {
                 case 28, 41 -> board.add(new MaxPotion());
                 default -> board.add(new EmptyCase());
             }
-            Collections.shuffle(board); // permet de rendre mon groupe d'objets (ici les cases) aléatoires
+//            Collections.shuffle(board); // permet de rendre mon groupe d'objets (ici les cases) aléatoires
         }
     }
 
+
+    /**
+     * Effectue un lancer de dé random, avance le joueur du résultat.
+     * @throws PersonnageHorsPlateauException LEVE UNE EXCEPTION si le joueur sort du plateau.
+     */
+    public void movePlayer() throws PersonnageHorsPlateauException {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("LANCER vos dés : press Enter");
+        scan.nextLine();
+        int dice = (int) (Math.random() * 6) + 1;
+        System.out.println("Vous avez lancé un " + dice); // Affiche le résultat du lancer de dé
+
+        positionPlayer += dice; // Déplace le joueur en avant
+
+        if (positionPlayer > 64) {
+            throw new PersonnageHorsPlateauException(); // Lève une exception si le joueur sort du plateau
+        }
+    }
+
+    public void movebackPlayer() throws PersonnageHorsPlateauException {
+        int dice = (int) (Math.random() * 6) + 1;
+        System.out.println("Vous avez lancé un " + dice); // Affiche le résultat du lancer de dé
+
+        positionPlayer -= dice; // Déplace le joueur en arrière
+
+        if (positionPlayer < 0 ) {
+            throw new PersonnageHorsPlateauException(); // Lève une exception si le joueur sort du plateau
+        }
+    }
 
     // GETTER & SETTER
 
@@ -62,10 +93,9 @@ public class Board implements Case {
 
     /**
      *
-     * @param positionPlayer
      * @return la case actuelle du Joueur en fonction de sa position
      */
-    public Case getCase(int positionPlayer) {
+    public Case getCase() {
         return board.get(positionPlayer);
     }
 

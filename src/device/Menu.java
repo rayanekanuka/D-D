@@ -5,13 +5,13 @@ import characters.Magician;
 import characters.PersonnageHorsPlateauException;
 import characters.Warrior;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Menu {
     //    Scanner grande classe qu'on initialise avec la méthode scanner
     private final Scanner scanner;
-    private Warrior hero1;
-    private Magician hero2;
+    public Hero hero;
 
     // Constructeur de la classe Menu;
     // Le scanner est utilisé pour obtenir les entrées de l'utilisateur
@@ -22,98 +22,61 @@ public class Menu {
 
     // Méthode chooseHero qui permet d'afficher le Menu et d'instancier le Hero ici
     // Si je veux l'utiliser ailleurs penser à la retourner (mot clé return)
-    public Hero chooseHero() {
-        Hero hero1 = new Warrior("");
-        Hero hero2 = new Magician("");
+    private int affichageMenu() {
+        // Affiche-moi ---->
+        System.out.println("Que souhaitez-vous faire ?");
+        System.out.println("1 Créer un personnage.");
+        System.out.println("2 Modifier le personnage.");
+        System.out.println("3 JOUER !");
+        System.out.println("4 ECHAP pour quitter le jeu");
+        int playerChoice = scanner.nextInt();
+        return playerChoice;
+    }
 
-        System.out.println("\n" +
-                "██████╗  ██████╗ ███╗   ██╗     ██╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
-                "██╔══██╗██╔═══██╗████╗  ██║     ██║██╔═══██╗████╗  ██║██╔════╝       ██║       ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔═══██╗████╗  ██║██╔════╝\n" +
-                "██║  ██║██║   ██║██╔██╗ ██║     ██║██║   ██║██╔██╗ ██║███████╗    ████████╗    ██║  ██║██████╔╝███████║██║  ███╗██║   ██║██╔██╗ ██║███████╗\n" +
-                "██║  ██║██║   ██║██║╚██╗██║██   ██║██║   ██║██║╚██╗██║╚════██║    ██╔═██╔═╝    ██║  ██║██╔══██╗██╔══██║██║   ██║██║   ██║██║╚██╗██║╚════██║\n" +
-                "██████╔╝╚██████╔╝██║ ╚████║╚█████╔╝╚██████╔╝██║ ╚████║███████║    ██████║      ██████╔╝██║  ██║██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║███████║\n" +
-                "╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝    ╚═════╝      ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝\n" +
-                "                                                                                                                                           \n");
+    public void gameMenu() {
+        decoinutile();
         // Je crée un booléan de vérification que je détermine comme faux
         boolean isReady = false;
+        Game game = new Game();
 
         // Tant que isReady est faux
         while (!isReady) {
-
-            // Affiche-moi ---->
-            System.out.println("Que souhaitez-vous faire ?");
-            System.out.println("* GUERRIER ou MAGICIEN ? Faites votre choix");
-            System.out.println("* CREER votre propre personnage ? ");
-            System.out.println("* JOUER !");
-            System.out.println("* ECHAP pour quitter le jeu");
-            String playerChoice = scanner.nextLine().toUpperCase();
-
-            switch (playerChoice) {
-                case "CREER" -> {
-                    hero1 = newHero();
-                }
-                case "JOUER" -> {
-                    System.out.println("Aller commençons ! Faites-nous rêver :) ");
-                    Game newGame = new Game();
-                    // ici j'attrappe une exception
-                    try {
-                        newGame.move(hero1);
-                        newGame.move(hero2);
-                        isReady = true;
-                    } catch (PersonnageHorsPlateauException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                // dans le cas où l'utilisateur choisit le Guerrier
-                case "GUERRIER" -> {
-                    System.out.println("Veuillez choisir le nom de votre Héros : ");
-                    String playerName = scanner.nextLine().toUpperCase();
-                    System.out.println("Vous avez choisi le " + playerChoice + ", préparez-vous à la bagarre !");
-                    hero1 = new Warrior(playerName);
-                    // isReady devient faux ce qui permet de sortir de la boucle while
-                    isReady = false;
-                    System.out.println(hero1);
-                }
-                // dans le cas où l'utilisateur choisit le Magicien
-                case "MAGICIEN" -> {
-                    System.out.println("Veuillez choisir le nom de votre Héros : ");
-                    String playerName = scanner.nextLine().toUpperCase();
-                    System.out.println("Vous avez choisi le " + playerChoice + ", préparez-vous à la bagarre !");
-                    hero2 = new Magician(playerName);
-                    // isReady devient faux ce qui permet de sortir de la boucle while
-                    isReady = false;
-                    System.out.println(hero2);
-                }
-                case "ECHAP" -> {
-                    // dans le cas où l'utilisateur choisi ECHAP
+            switch (affichageMenu()) {
+                case 1 -> { hero = newHero(); System.out.println(hero); }
+                case 2 -> hero = modifyHero();
+                case 3 -> { if (hero != null) game.move(hero); }
+                case 4 -> {
                     System.out.println("Oh nooon vous avez quitté le jeu ! A bientôt :) ");
                     // isReady devient vrai ce qui permet de sortir de la boucle while
                     isReady = true;
-                    return null;
                 }
-                // Si toutefois aucun de ces cas n'est choisi alors le "default" se lance
                 default -> System.out.println("Veuillez entrer un choix valide !");
             }
-
         }
-        return null;
     }
 
-
     public Hero newHero() {
-        Hero hero1 = null;
         Scanner newHero = new Scanner(System.in);
         System.out.print("Taper le nom : ");
         String nameHero = newHero.nextLine();
 
-        System.out.print("Taper le Type : ");
+        System.out.print("Taper le Type : Magicien ou Guerrier ");
         String typeHero = newHero.nextLine();
 
-        while (!typeHero.equals("Guerrier") && !typeHero.equals("Magicien")) {
-            System.out.println("Veuillez choisir entre 'Guerrier' et 'Magicien'");
-            System.out.print("Taper le Type : ");
-            typeHero = newHero.nextLine();
+        if (typeHero.equalsIgnoreCase("Guerrier")) {
+            return hero = new Warrior(nameHero);
+
+        } else {
+            typeHero.equalsIgnoreCase("Magicien");
+            return hero = new Magician(nameHero);
         }
+
+    }
+
+    private Hero modifyHero() {
+        Scanner newHero = new Scanner(System.in);
+        String nameHero = null;
+        String typeHero = null;
 
         System.out.print("Voulez vous changer des infos?  [y/n]");
         if (newHero.nextLine().equals("y")) {
@@ -129,11 +92,31 @@ public class Menu {
             }
         }
         if (typeHero.equalsIgnoreCase("Guerrier")) {
-            return hero1 = new Warrior(nameHero);
+            return hero = new Warrior(nameHero);
         } else {
             typeHero.equalsIgnoreCase("Magicien");
-            return hero2 = new Magician(nameHero);
+            return hero = new Magician(nameHero);
         }
+    }
+
+    public void insertDatabase() {
+        try {
+            Database database = new Database();
+            database.createHero(hero);
+        } catch (SQLException e) {
+            System.out.println("Erreur dans l'accès à la base de données");
+        }
+    }
+
+    private void decoinutile() {
+        System.out.println("\n" +
+                "██████╗  ██████╗ ███╗   ██╗     ██╗ ██████╗ ███╗   ██╗███████╗       ██╗       ██████╗ ██████╗  █████╗  ██████╗  ██████╗ ███╗   ██╗███████╗\n" +
+                "██╔══██╗██╔═══██╗████╗  ██║     ██║██╔═══██╗████╗  ██║██╔════╝       ██║       ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔═══██╗████╗  ██║██╔════╝\n" +
+                "██║  ██║██║   ██║██╔██╗ ██║     ██║██║   ██║██╔██╗ ██║███████╗    ████████╗    ██║  ██║██████╔╝███████║██║  ███╗██║   ██║██╔██╗ ██║███████╗\n" +
+                "██║  ██║██║   ██║██║╚██╗██║██   ██║██║   ██║██║╚██╗██║╚════██║    ██╔═██╔═╝    ██║  ██║██╔══██╗██╔══██║██║   ██║██║   ██║██║╚██╗██║╚════██║\n" +
+                "██████╔╝╚██████╔╝██║ ╚████║╚█████╔╝╚██████╔╝██║ ╚████║███████║    ██████║      ██████╔╝██║  ██║██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║███████║\n" +
+                "╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝    ╚═════╝      ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝\n" +
+                "                                                                                                                                           \n");
     }
 }
 
