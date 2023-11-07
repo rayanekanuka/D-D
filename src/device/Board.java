@@ -22,6 +22,7 @@ import java.util.Scanner;
  */
 public class Board implements Case {
     private final ArrayList<Case> board; // add - get - set - remove - clear - size
+
     private int positionPlayer; // position actuelle du joueur
 
 
@@ -47,14 +48,15 @@ public class Board implements Case {
                 case 28, 41 -> board.add(new MaxPotion());
                 default -> board.add(new EmptyCase());
             }
-//            Collections.shuffle(board); // permet de rendre mon groupe d'objets (ici les cases) aléatoires
+            Collections.shuffle(board); // permet de rendre mon groupe d'objets (ici les cases) aléatoires
         }
     }
 
 
     /**
      * Effectue un lancer de dé random, avance le joueur du résultat.
-     * @throws PersonnageHorsPlateauException LEVE UNE EXCEPTION si le joueur sort du plateau.
+     *
+     * @throws PersonnageHorsPlateauException LÈVE UNE EXCEPTION si le joueur sort du plateau.
      */
     public void movePlayer() throws PersonnageHorsPlateauException {
         Scanner scan = new Scanner(System.in);
@@ -70,13 +72,13 @@ public class Board implements Case {
         }
     }
 
-    public void movebackPlayer() throws PersonnageHorsPlateauException {
+    public void moveBackPlayer() throws PersonnageHorsPlateauException {
         int dice = (int) (Math.random() * 6) + 1;
         System.out.println("Vous avez lancé un " + dice); // Affiche le résultat du lancer de dé
 
         positionPlayer -= dice; // Déplace le joueur en arrière
 
-        if (positionPlayer < 0 ) {
+        if (positionPlayer < 0) {
             throw new PersonnageHorsPlateauException(); // Lève une exception si le joueur sort du plateau
         }
     }
@@ -90,9 +92,11 @@ public class Board implements Case {
     public int getPositionPlayer() {
         return positionPlayer;
     }
+    public void setPositionPlayer(int positionPlayer) {
+        this.positionPlayer = positionPlayer;
+    }
 
     /**
-     *
      * @return la case actuelle du Joueur en fonction de sa position
      */
     public Case getCase() {
@@ -101,6 +105,7 @@ public class Board implements Case {
 
     /**
      * Gère l'interaction du joueur avec la case actuelle
+     *
      * @param hero
      */
     @Override

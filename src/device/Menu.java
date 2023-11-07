@@ -14,13 +14,9 @@ public class Menu {
 
     // Constructeur de la classe Menu;
     // Le scanner est utilisé pour obtenir les entrées de l'utilisateur
-
     public Menu(Scanner scanner) {
         this.scanner = scanner;
     }
-
-    // Méthode chooseHero qui permet d'afficher le Menu et d'instancier le Hero ici
-    // Si je veux l'utiliser ailleurs penser à la retourner (mot clé return)
     private int affichageMenu() {
         // Affiche-moi ---->
         System.out.println("Que souhaitez-vous faire ?");

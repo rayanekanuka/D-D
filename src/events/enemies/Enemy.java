@@ -1,6 +1,7 @@
 package events.enemies;
 
 import characters.Hero;
+import device.Board;
 import device.Case;
 import device.Fight;
 
@@ -12,6 +13,7 @@ public abstract class Enemy implements Case, Fight {
     protected String name;
     protected int hp;
     protected int strength;
+    public Board board;
 
     public Enemy(String name, int hp, int strength) {
         this.name = name;
@@ -44,6 +46,7 @@ public abstract class Enemy implements Case, Fight {
                 }
 
             } else if (answer.equals("F")) {
+//                board.moveBackPlayer();
                 Random rand = new Random();
                 int pose = rand.nextInt(6) + 1;
                 System.out.println("Vous avez fuit de la case " + hero.getPosition() + " jusqu'à" + " vous retrouver sur la case " + (hero.getPosition() - pose));
