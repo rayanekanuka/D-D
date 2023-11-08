@@ -11,19 +11,31 @@ public class Menu {
     //    Scanner grande classe qu'on initialise avec la méthode scanner
     private final Scanner scanner;
     public Hero hero;
+    public Database DBConnexion;
+
+    {
+        try {
+            DBConnexion = new Database();
+        } catch (SQLException e) {
+            System.out.println("Erreur dans l'accès à la base de données");
+        }
+    }
+
 
     // Constructeur de la classe Menu;
     // Le scanner est utilisé pour obtenir les entrées de l'utilisateur
     public Menu(Scanner scanner) {
         this.scanner = scanner;
     }
+
     private int affichageMenu() {
         // Affiche-moi ---->
         System.out.println("Que souhaitez-vous faire ?");
         System.out.println("[1] Créer un personnage");
-        System.out.println("[2] Modifier le personnage");
-        System.out.println("[3] JOUER !");
-        System.out.println("[4] Quitter le jeu");
+        System.out.println("[2] Afficher les personnages BDD");
+        System.out.println("[3] Modifier le personnage");
+        System.out.println("[4] JOUER !");
+        System.out.println("[5] Quitter le jeu");
         int playerChoice = scanner.nextInt();
         return playerChoice;
     }
@@ -37,10 +49,19 @@ public class Menu {
         // Tant que isReady est faux
         while (!isReady) {
             switch (affichageMenu()) {
-                case 1 -> { hero = newHero(); System.out.println(hero); }
-                case 2 -> { if (hero != null) hero = modifyHero(); }
-                case 3 -> { if (hero != null) game.move(hero); }
+                case 1 -> {
+                    hero = newHero();
+                    System.out.println(hero);
+                    createInDatabase();
+                }
+                case 2 -> displayInDatabase();
+                case 3 -> {
+                    if (hero != null) hero = modifyHero();
+                }
                 case 4 -> {
+                    if (hero != null) game.move(hero);
+                }
+                case 5 -> {
                     System.out.println("Oh nooon vous avez quitté le jeu ! A bientôt :) ");
                     // isReady devient vrai ce qui permet de sortir de la boucle while
                     isReady = true;
@@ -64,8 +85,28 @@ public class Menu {
             typeHero.equalsIgnoreCase("Magicien");
             return hero = new Magician(nameHero);
         }
-
     }
+
+    public void createInDatabase() {
+        try {
+            DBConnexion.createHero(hero);
+        } catch (SQLException e) {
+            System.out.println("Erreur dans la création du personnage dans la base de données");
+        }
+    }
+
+    public void displayInDatabase() {
+        try {
+            DBConnexion.getHeroes();
+            System.out.println("Quel personnage souhaites-tu jouer?");
+            String nameHero = scanner.next().toUpperCase();
+            hero = DBConnexion.chooseHero(nameHero);
+        } catch (SQLException e) {
+            System.out.println("Erreur dans la modification du personnage dans la base de données");
+        }
+    }
+
+
 
     private Hero modifyHero() {
         Scanner newHero = new Scanner(System.in);
@@ -93,14 +134,6 @@ public class Menu {
         }
     }
 
-    public void insertDatabase() {
-        try {
-            Database database = new Database();
-            database.createHero(hero);
-        } catch (SQLException e) {
-            System.out.println("Erreur dans l'accès à la base de données");
-        }
-    }
 
     private void decoMenu() {
         System.out.println("\n" +

@@ -12,7 +12,7 @@ import events.bonus.spells.Flash;
 public class Magician extends Hero {
 
     public Magician(String name) {
-        super(name, 5, 8, 8, "Magicien", 0, 6, 0, 15, new Flash());
+        super(name, 5, 8, 8, "Magician", 0, 6, 0, 15, new Flash());
     }
 
     public Magician() {

@@ -6,7 +6,7 @@ import characters.PersonnageHorsPlateauException;
 import java.util.Scanner;
 
 public class Game {
-    public Board board;
+    private Board board;
     private int boardSize;
     private int round;
 
