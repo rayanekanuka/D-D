@@ -47,6 +47,7 @@ public class Board implements Case {
                 case 48, 49 -> board.add(new FireBall());
                 case 7, 13, 31, 33, 39, 43 -> board.add(new NormalPotion());
                 case 28, 41 -> board.add(new MaxPotion());
+                default -> board.add(new EmptyCase());
 //                case 34 -> {
 //                    board.remove(34); // suppression
 //                }
@@ -55,7 +56,6 @@ public class Board implements Case {
 //                    System.out.println(board.indexOf("3")); // retourne l'indexOf s'il l'a trouvé, sinon -1
 //                    System.out.println(board.contains("3")); // retourne un booléen s'il l'a trouvé ou non
 //                }
-                default -> board.add(new EmptyCase());
             }
             Collections.shuffle(board); // permet de rendre mon groupe d'objets (ici les cases) aléatoires
         }

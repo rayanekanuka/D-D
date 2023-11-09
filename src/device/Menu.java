@@ -14,11 +14,7 @@ public class Menu {
     public Database DBConnexion;
 
     {
-        try {
-            DBConnexion = new Database();
-        } catch (SQLException e) {
-            System.out.println("Erreur dans l'accès à la base de données");
-        }
+        DBConnexion = new Database();
     }
 
 
@@ -88,21 +84,18 @@ public class Menu {
     }
 
     public void createInDatabase() {
-        try {
-            DBConnexion.createHero(hero);
-        } catch (SQLException e) {
-            System.out.println("Erreur dans la création du personnage dans la base de données");
-        }
+        DBConnexion.createHero(hero);
     }
 
     public void displayInDatabase() {
         try {
-            DBConnexion.getHeroes();
-            System.out.println("Quel personnage souhaites-tu jouer?");
-            String nameHero = scanner.next().toUpperCase();
-            hero = DBConnexion.chooseHero(nameHero);
+        DBConnexion.getHeroes();
+        System.out.println("Quel personnage souhaites-tu jouer?");
+        String nameHero = scanner.next().toUpperCase();
+        hero = DBConnexion.chooseHero(nameHero);
+        System.out.println(hero.toString());
         } catch (SQLException e) {
-            System.out.println("Erreur dans la modification du personnage dans la base de données");
+            System.out.println("Aucun personnage trouvé dans la base de données");
         }
     }
 
