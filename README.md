@@ -1,4 +1,4 @@
-# POO - JAVA - Création du jeu Donjons & Dragons
+# POO - JAVA - Création du jeu "Donjons & Dragons"
 
 ## OBJECTIFS
 Le but est la découverte du langage orienté Java et d’aller plus loin dans les concepts concernant la programmation orientée objet.
