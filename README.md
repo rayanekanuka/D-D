@@ -8,8 +8,8 @@ Le but est la découverte du langage orienté Java et d’aller plus loin dans l
 3. Consolider les connaissances vues lors des précédents modules (algo, base de données)
 4. Un premier pas dans le développement d'applications bureau.
 
-### Dans un second temps, le projet s’articule autour du développement d’un jeu de plateau dans l’univers “Donjons & Dragons”.
-- Le développement de ce jeu se fera de manière incrémentale, en passant par de petites activités afin d’acquérir les compétences nécessaires au fur et à mesure.
+### Le projet s’articule autour du développement d’un jeu de plateau dans l’univers “Donjons & Dragons”.
+- Le développement de ce jeu s'est fait de manière incrémentale, en passant par de petites activités afin d’acquérir les compétences nécessaires au fur et à mesure.
 
 ## Compétences
 + Manipuler l’environnement de développement
