@@ -3,10 +3,10 @@
 ## OBJECTIFS
 Le but est la découverte du langage orienté Java et d’aller plus loin dans les concepts concernant la programmation orientée objet.
 
-- Découverte d’un nouveau langage objet
-- Renforcer et développer vos connaissances en programmation orientée objet
-- Consolider les connaissances vues lors des précédents modules (algo, base de données)
-- Un premier pas dans le développement d'applications bureau.
+1. Découverte d’un nouveau langage objet
+2. Renforcer et développer vos connaissances en programmation orientée objet
+3. Consolider les connaissances vues lors des précédents modules (algo, base de données)
+4. Un premier pas dans le développement d'applications bureau.
 
 ### Dans un second temps, le projet s’articule autour du développement d’un jeu de plateau dans l’univers “Donjons & Dragons”.
 - Le développement de ce jeu se fera de manière incrémentale, en passant par de petites activités afin d’acquérir les compétences nécessaires au fur et à mesure.
